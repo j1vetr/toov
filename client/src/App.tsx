@@ -11,6 +11,8 @@ import About from "@/pages/about";
 import Innovation from "@/pages/innovation";
 import References from "@/pages/references";
 import Contact from "@/pages/contact";
+import PrivacyPolicy from "@/pages/privacy-policy";
+import KVKK from "@/pages/kvkk";
 import ScrollToTop from "@/components/ScrollToTop";
 
 function Router() {
@@ -21,6 +23,8 @@ function Router() {
       <Route path="/inovasyon" component={Innovation} />
       <Route path="/referanslar" component={References} />
       <Route path="/iletisim" component={Contact} />
+      <Route path="/gizlilik-politikasi" component={PrivacyPolicy} />
+      <Route path="/kvkk" component={KVKK} />
       <Route component={NotFound} />
     </Switch>
   );

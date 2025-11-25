@@ -73,8 +73,12 @@ export default function Footer() {
         <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-500 text-sm">© 2025 TOOV Internet Solutions. Tüm Hakları Saklıdır.</p>
           <div className="flex gap-6 text-sm text-gray-500">
-            <a href="#" className="hover:text-white transition-colors">Gizlilik Politikası</a>
-            <a href="#" className="hover:text-white transition-colors">Kullanım Şartları</a>
+            <Link href="/gizlilik-politikasi">
+              <a className="hover:text-white transition-colors">Gizlilik Politikası</a>
+            </Link>
+            <Link href="/kvkk">
+              <a className="hover:text-white transition-colors">KVKK</a>
+            </Link>
           </div>
         </div>
       </div>
