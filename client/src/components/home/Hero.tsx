@@ -37,21 +37,16 @@ export default function Hero() {
                 <span className="text-primary">Yaratıcı</span> Güç.
               </h1>
               
-              <p className="text-xl text-gray-300 max-w-2xl leading-relaxed mb-10 border-l-2 border-primary/50 pl-6">
-                TOOV, el işçiliği tasarım anlayışını mühendislik odaklı dijital ürünlerle birleştirir. 
-                Web Tasarım, Özel Yazılım ve SEO Büyümesi.
-              </p>
-
-              <div className="flex flex-row flex-wrap gap-4">
+              <div className="flex flex-col sm:flex-row items-start gap-6 mt-10">
                 <Link href="/iletisim">
-                  <a className="group relative px-8 py-4 bg-white text-background font-bold text-lg rounded-sm overflow-hidden inline-flex items-center gap-3">
+                  <a className="group relative px-8 py-4 bg-white text-background font-bold text-lg rounded-sm overflow-hidden inline-flex items-center gap-3 translate-y-0 sm:-translate-y-2">
                     <span className="relative z-10">Projenizi Başlatalım</span>
                     <ArrowRight className="relative z-10 group-hover:translate-x-1 transition-transform" />
                     <div className="absolute inset-0 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
                   </a>
                 </Link>
                 <Link href="/referanslar">
-                  <a className="px-8 py-4 border border-white/20 text-white font-medium text-lg rounded-sm hover:bg-white/5 transition-colors backdrop-blur-sm">
+                  <a className="px-8 py-4 border border-white/20 text-white font-medium text-lg rounded-sm hover:bg-white/5 transition-colors backdrop-blur-sm translate-y-0 sm:translate-y-2">
                     İşlerimizi İnceleyin
                   </a>
                 </Link>
@@ -65,7 +60,7 @@ export default function Hero() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, delay: 0.4 }}
-              className="absolute top-10 right-0 w-64 h-80 border border-primary/20 rounded-lg backdrop-blur-md bg-white/5 z-10"
+              className="absolute top-10 right-0 w-64 h-80 border border-primary/20 rounded-lg backdrop-blur-md bg-white/5 z-10 hidden"
             />
             <motion.div 
               initial={{ opacity: 0, y: 50 }}
