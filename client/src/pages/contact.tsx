@@ -51,11 +51,11 @@ export default function Contact() {
             <div className="space-y-8 mb-12">
               <div>
                 <h3 className="text-white font-bold text-lg mb-2">Adres</h3>
-                <p className="text-gray-400">Maslak Mah. Büyükdere Cad. No: 123<br />Sarıyer, İstanbul</p>
+                <p className="text-gray-400">Gürsel Mah. İmrahor Cad. Premier Kampüs Ofis No: 29/b Kat:3 Ofis: 322<br />Kağıthane / İstanbul</p>
               </div>
               <div>
                 <h3 className="text-white font-bold text-lg mb-2">İletişim</h3>
-                <p className="text-gray-400">hello@toov.tech<br />+90 (212) 555 0123</p>
+                <p className="text-gray-400">hello@toov.com.tr<br />0850 309 47 69</p>
               </div>
             </div>
 

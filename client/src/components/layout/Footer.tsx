@@ -51,15 +51,15 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="text-gray-400">
                 <span className="block text-xs text-primary uppercase tracking-wider mb-1">Adres</span>
-                Maslak Mah. Büyükdere Cad.<br />No: 123, Sarıyer/İstanbul
+                Gürsel Mah. İmrahor Cad. Premier Kampüs Ofis No: 29/b Kat:3 Ofis: 322<br />Kağıthane / İstanbul
               </li>
               <li className="text-gray-400">
                 <span className="block text-xs text-primary uppercase tracking-wider mb-1">Email</span>
-                hello@toov.tech
+                hello@toov.com.tr
               </li>
               <li className="text-gray-400">
                 <span className="block text-xs text-primary uppercase tracking-wider mb-1">Telefon</span>
-                +90 (212) 555 0123
+                0850 309 47 69
               </li>
             </ul>
           </div>
