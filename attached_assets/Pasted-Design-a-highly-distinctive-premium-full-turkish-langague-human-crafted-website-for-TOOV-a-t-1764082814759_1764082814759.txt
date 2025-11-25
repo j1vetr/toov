@@ -1,0 +1,122 @@
+Design a highly distinctive, premium,full turkish langague, human-crafted website for **TOOV** — a technology firm specializing in:
+
+- Web Design
+- Web Development
+- Mobile App Development
+- SEO & Growth Solutions
+
+This must NOT look AI-generated, NOT look like a generic agency template, and must feel custom, handcrafted, and premium. The design style should clearly stand apart from typical AI layouts. Avoid cliché stock imagery, avoid symmetrical hero sections, and avoid perfect grids that scream AI. Instead, use confident asymmetry, layered depth, micro-details, and strong visual hierarchy like a modern design studio.
+
+---
+## BRAND CHARACTER
+TOOV is a sharp, bold, modern technology studio.
+Tone: premium, confident, slightly futuristic but human, simple but not minimal.
+No playful startup vibes. No childish icons. Strong personality.
+
+Primary message:  
+**“TOOV builds powerful digital products with precision, creativity and engineering depth.”**
+
+---
+## COLOR & MOOD (direction, not strict)
+- Deep dark navy or charcoal base  
+- Strong white contrast  
+- A subtle electric turquoise accent (rarely used, only to highlight focal points)
+
+Let the system decide exact colors — keep it elegant, premium, and modern.
+
+---
+## TYPOGRAPHY (direction)
+- Bold, geometric headline font  
+- Clean, readable body font  
+- Strong, intentional type hierarchy  
+- No AI-default typography patterns
+
+---
+## PAGE STRUCTURE (5 pages)
+Create the full UI design for:
+
+### 1. **Home Page**
+A striking, asymmetric hero section with an abstract, tech-inspired background.  
+No generic “team photo.” No corporate handshake images.
+
+Hero text example to use:  
+**“TOOV — Precision Web Design, Custom Software & SEO Growth.”**  
+Subtext example:  
+“Engineering-driven digital products with a handcrafted design approach.”
+
+Sections to include:
+- Services highlights (4 cards: Web Design, Web Development, Mobile Apps, SEO)
+- “Why TOOV?” section with unique layout (not grid-boxy)
+- A bold “Innovation & Technology” teaser linking to the Innovations page
+- Showcase strip of selected references (logos or placeholder cards)
+- Strong CTA block at the bottom: “Let’s Build Your Digital Future”
+
+Layout:  
+Confident spacing, layers, subtle shadows, floating elements, overlapping modules.  
+Look handcrafted and intentional.
+
+---
+
+### 2. **About Us**
+Design a storytelling-focused page:
+- Big header with bold statement: “We build digital experiences with precision.”
+- Timeline-style or staggered layout for TOOV’s story
+- Section explaining the team’s expertise (no photos required, stylish placeholders acceptable)
+- Values & philosophy in stylish split-block design
+
+Avoid AI-style perfect symmetry.  
+Use human irregularity but premium composition.
+
+---
+
+### 3. **Innovation Page**
+This must *hit hard*.  
+This is where TOOV shows its technical power.
+
+Sections to include:
+- Modern grid or layered layout presenting:
+  - Technologies used (React, Next.js, Python, Django, Flutter, etc.)
+  - Design tools and workflow (Figma, Tailwind, etc.)
+  - Infrastructure expertise (Linux servers, Nginx, PostgreSQL, Docker)
+  - SEO methodology & tools (Semrush, GSC, Schema, Core Web Vitals)
+- Create visually unique cards for each tech/tool — not typical icon + text.
+
+Add an **“Innovation Principles”** section:
+- Performance-first development  
+- UX-engineering approach  
+- Transparent analytics + growth mindset  
+- Security and scalability  
+Design this in a premium diagram or vertical “value pillars” layout.
+
+---
+
+### 4. **References Page**
+A clean, luxurious portfolio grid with:
+- Case study cards (asymmetric or staggered)
+- Placeholders for images, project names, short descriptions and tags
+- On hover: subtle motion, not flashy.
+
+No generic agency portfolio look.  
+Make it feel curated and intentionally spaced.
+
+---
+
+### 5. **Contact Page**
+Modern, premium contact section:
+- Left side: short intro text  
+- Right side: a clean contact form  
+- Small map or schematic illustration, but not a classic Google Map embed look.
+
+Keep it stylish and minimal.
+
+---
+
+## UX NOTES
+- Use asymmetric layouts  
+- Use depth, layering, and micro-interactions  
+- Avoid template patterns  
+- Make the design look like a boutique design studio’s custom work  
+- Keep everything fast, elegant, and premium  
+- Strong attention to whitespace and rhythm
+
+Create all pages with placeholder text and dummy case studies; I will replace the content later.
