@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import { Facebook, Twitter, Instagram, Linkedin, ArrowUpRight } from "lucide-react";
+import toovLogo from "@assets/toov_logo.png";
 
 export default function Footer() {
   return (
@@ -10,8 +11,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-20">
           <div className="md:col-span-5">
             <Link href="/">
-              <a className="text-3xl font-display font-bold tracking-tighter text-white mb-6 block">
-                TOOV<span className="text-primary">.</span>
+              <a className="block mb-6 hover:opacity-80 transition-opacity inline-block">
+                <img src={toovLogo} alt="TOOV" className="h-12 w-auto" />
               </a>
             </Link>
             <p className="text-gray-400 max-w-md leading-relaxed mb-8">

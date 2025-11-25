@@ -4,6 +4,8 @@ import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
+import toovLogo from "@assets/toov_logo.png";
+
 export default function Navbar() {
   const [location] = useLocation();
   const [isOpen, setIsOpen] = useState(false);
@@ -34,8 +36,8 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
         <Link href="/">
-          <a className="text-2xl font-display font-bold tracking-tighter text-white hover:text-primary transition-colors">
-            TOOV<span className="text-primary">.</span>
+          <a className="block hover:opacity-80 transition-opacity">
+            <img src={toovLogo} alt="TOOV" className="h-10 w-auto" />
           </a>
         </Link>
 
