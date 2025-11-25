@@ -11,6 +11,7 @@ import About from "@/pages/about";
 import Innovation from "@/pages/innovation";
 import References from "@/pages/references";
 import Contact from "@/pages/contact";
+import ScrollToTop from "@/components/ScrollToTop";
 
 function Router() {
   return (
@@ -30,6 +31,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <div className="min-h-screen bg-background text-foreground font-body selection:bg-primary/30 selection:text-primary flex flex-col">
+          <ScrollToTop />
           <Navbar />
           <main className="flex-grow">
             <Router />
