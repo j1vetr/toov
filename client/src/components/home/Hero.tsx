@@ -45,11 +45,6 @@ export default function Hero() {
                     <div className="absolute inset-0 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
                   </a>
                 </Link>
-                <Link href="/referanslar">
-                  <a className="px-8 py-4 border border-white/20 text-white font-medium text-lg rounded-sm hover:bg-white/5 transition-colors backdrop-blur-sm translate-y-0 sm:translate-y-2">
-                    İşlerimizi İnceleyin
-                  </a>
-                </Link>
               </div>
             </motion.div>
           </div>
