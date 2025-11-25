@@ -8,7 +8,7 @@ export default function CtaBlock() {
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-5xl md:text-7xl font-display font-bold text-white mb-8">
             Dijital Geleceğinizi <br />
-            <span className="italic font-serif text-primary">Birlikte İnşa Edelim</span>
+            <span className="text-primary">Birlikte İnşa Edelim</span>
           </h2>
           <p className="text-xl text-gray-400 mb-12">
             Sıradanlığın ötesine geçmeye hazır mısınız? Projeniz için en doğru stratejiyi belirleyelim.
