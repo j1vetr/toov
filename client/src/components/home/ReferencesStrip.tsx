@@ -3,14 +3,14 @@ import { ArrowUpRight } from "lucide-react";
 import { Link } from "wouter";
 
 // Import select logos for homepage
-import gokalafLogo from "@assets/generated_images/minimalist_logo_for_gokalaf.png";
-import hankLogo from "@assets/generated_images/minimalist_logo_for_hank.png";
-import lacivertLogo from "@assets/generated_images/minimalist_logo_for_lacivert_teknoloji.png";
-import pslLogo from "@assets/generated_images/minimalist_logo_for_psl_mobil_enerji.png";
+import gokalafLogo from "@assets/logos/gokalaf_logo.png";
+import hankLogo from "@assets/logos/hank_logo.svg";
+import lacivertLogo from "@assets/logos/lacivert_logo.png";
+import pslLogo from "@assets/logos/psl_logo.png";
 
 const references = [
   { name: "Gökalaf", category: "Spor & Sağlık", logo: gokalafLogo },
-  { name: "Hank Gayrimenkul", category: "Gayrimenkul", logo: hankLogo },
+  { name: "Hank", category: "E-Ticaret (Gym)", logo: hankLogo },
   { name: "Lacivert Teknoloji", category: "Bilişim", logo: lacivertLogo },
   { name: "PSL Mobil Enerji", category: "Enerji", logo: pslLogo }
 ];
@@ -40,7 +40,7 @@ export default function ReferencesStrip() {
               <img 
                 src={ref.logo} 
                 alt={ref.name}
-                className="w-24 h-24 object-contain opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 relative z-10 grayscale group-hover:grayscale-0"
+                className="w-32 h-32 object-contain opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 relative z-10 grayscale group-hover:grayscale-0"
               />
               
               <div className="absolute bottom-6 left-0 right-0 text-center transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 z-20">

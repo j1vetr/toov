@@ -2,16 +2,16 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 
 // Import logos
-import pslLogo from "@assets/generated_images/minimalist_logo_for_psl_mobil_enerji.png";
-import gokalafLogo from "@assets/generated_images/minimalist_logo_for_gokalaf.png";
-import lacivertLogo from "@assets/generated_images/minimalist_logo_for_lacivert_teknoloji.png";
-import hankLogo from "@assets/generated_images/minimalist_logo_for_hank.png";
-import kurlarLogo from "@assets/generated_images/minimalist_logo_for_kurlar.png";
-import adeLogo from "@assets/generated_images/minimalist_logo_for_ade_global_ads.png";
-import yardimSeliLogo from "@assets/generated_images/minimalist_logo_for_yardım_seli.png";
-import nasilOlduLogo from "@assets/generated_images/minimalist_logo_for_nasıl_oldu.png";
-import postaLogo from "@assets/generated_images/minimalist_logo_for_posta_kod_rehberi.png";
-import besinLogo from "@assets/generated_images/minimalist_logo_for_besin_değerim.png";
+import pslLogo from "@assets/logos/psl_logo.png";
+import gokalafLogo from "@assets/logos/gokalaf_logo.png";
+import lacivertLogo from "@assets/logos/lacivert_logo.png";
+import hankLogo from "@assets/logos/hank_logo.svg";
+import kurlarLogo from "@assets/logos/kurlar_logo.png";
+import adeLogo from "@assets/logos/ade_logo.png";
+import yardimSeliLogo from "@assets/logos/yardim_logo.png";
+import nasilOlduLogo from "@assets/logos/nasil_oldu_logo.png";
+import postaLogo from "@assets/logos/posta_logo.png";
+import besinLogo from "@assets/logos/besin_logo.png";
 
 const references = [
   {
@@ -36,11 +36,11 @@ const references = [
     category: "Bilişim Teknolojileri"
   },
   {
-    name: "Hank Gayrimenkul",
+    name: "Hank",
     url: "https://hank.com.tr/",
     logo: hankLogo,
-    description: "Yeni nesil gayrimenkul danışmanlığı ve mülk yönetimi platformu.",
-    category: "Gayrimenkul (+SEO)"
+    description: "Yeni nesil spor ve gym ekipmanları e-ticaret platformu.",
+    category: "E-Ticaret (Gym)"
   },
   {
     name: "Kurlar",
@@ -118,7 +118,7 @@ export default function References() {
                 <img 
                   src={ref.logo} 
                   alt={`${ref.name} Logo`} 
-                  className="h-24 w-auto object-contain opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 relative z-10 drop-shadow-xl"
+                  className="h-32 w-auto object-contain opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 relative z-10 drop-shadow-xl"
                 />
               </div>
 
