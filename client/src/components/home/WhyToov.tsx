@@ -39,10 +39,10 @@ export default function WhyToov() {
 
             <ul className="space-y-6">
               {[
-                "Butik ve kişiye özel tasarım anlayışı",
-                "Yüksek performanslı, temiz kod mimarisi",
-                "Şeffaf süreç ve sürekli iletişim",
-                "Veri odaklı büyüme stratejileri"
+                "Butik Ve Kişiye Özel Tasarım",
+                "Yüksek Performanslı Kod Mimarisi",
+                "Şeffaf Süreç Ve Sürekli İletişim",
+                "Veri Odaklı Büyüme Stratejileri"
               ].map((item, i) => (
                 <motion.li 
                   key={i}
