@@ -32,13 +32,13 @@ export default function Hero() {
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white leading-[1.1] mb-8">
-                Yaratıcı <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">Web &</span><br />
-                <span className="text-primary">Yazılım</span> Gücü.
+                Geleceği <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">Kodlayan</span><br />
+                <span className="text-primary">Yaratıcı</span> Zeka.
               </h1>
               
               <p className="text-xl text-gray-300 max-w-2xl mb-10 font-light">
-                Dijital dünyada fark yaratan, performans odaklı web siteleri ve özel yazılım çözümleri geliştiriyoruz.
+                Web tasarımında estetik, yazılımda güç. Markanızı dijital dünyada zirveye taşıyan modern çözümler.
               </p>
               
               <div className="flex flex-col sm:flex-row items-start gap-6">
