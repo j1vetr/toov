@@ -40,9 +40,17 @@ export default function WhyToov() {
              {/* Atom Structure - Orbit 1 */}
              <motion.div 
                className="absolute w-[450px] h-[450px] rounded-full border border-white/10 z-0"
+               style={{ 
+                 top: '50%', 
+                 left: '50%', 
+                 x: '-50%', 
+                 y: '-50%',
+                 transformStyle: "preserve-3d", 
+                 rotateX: "70deg", 
+                 rotateY: "10deg" 
+               }}
                animate={{ rotate: 360 }}
                transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-               style={{ transformStyle: "preserve-3d", rotateX: "70deg", rotateY: "10deg" }}
              >
                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-primary rounded-full shadow-[0_0_10px_#00FFC8]" />
              </motion.div>
@@ -50,9 +58,17 @@ export default function WhyToov() {
              {/* Atom Structure - Orbit 2 */}
              <motion.div 
                className="absolute w-[450px] h-[450px] rounded-full border border-white/10 z-0"
+               style={{ 
+                 top: '50%', 
+                 left: '50%', 
+                 x: '-50%', 
+                 y: '-50%',
+                 transformStyle: "preserve-3d", 
+                 rotateX: "70deg", 
+                 rotateY: "130deg" 
+               }}
                animate={{ rotate: 360 }}
                transition={{ duration: 9, repeat: Infinity, ease: "linear", delay: 1 }}
-               style={{ transformStyle: "preserve-3d", rotateX: "70deg", rotateY: "130deg" }}
              >
                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-blue-500 rounded-full shadow-[0_0_10px_#3B82F6]" />
              </motion.div>
@@ -60,9 +76,17 @@ export default function WhyToov() {
              {/* Atom Structure - Orbit 3 */}
              <motion.div 
                className="absolute w-[450px] h-[450px] rounded-full border border-white/10 z-0"
+               style={{ 
+                 top: '50%', 
+                 left: '50%', 
+                 x: '-50%', 
+                 y: '-50%',
+                 transformStyle: "preserve-3d", 
+                 rotateX: "70deg", 
+                 rotateY: "250deg" 
+               }}
                animate={{ rotate: 360 }}
                transition={{ duration: 10, repeat: Infinity, ease: "linear", delay: 2 }}
-               style={{ transformStyle: "preserve-3d", rotateX: "70deg", rotateY: "250deg" }}
              >
                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-purple-500 rounded-full shadow-[0_0_10px_#A855F7]" />
              </motion.div>
@@ -75,7 +99,7 @@ export default function WhyToov() {
             </h2>
             <p className="text-xl text-gray-300 mb-10 leading-relaxed">
               Biz sadece web sitesi yapmıyoruz; markanız için yaşayan, büyüyen dijital ekosistemler inşa ediyoruz. 
-              Yapay zeka klişelerinden uzak, insan odaklı ve butik bir yaklaşım.
+              Yapay zeka destekli, insan odaklı ve butik bir yaklaşım.
             </p>
 
             <ul className="space-y-6">
