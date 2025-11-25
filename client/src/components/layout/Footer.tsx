@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { Facebook, Twitter, Instagram, Linkedin, ArrowUpRight } from "lucide-react";
+import { Instagram, Linkedin, ArrowUpRight } from "lucide-react";
 import toovLogo from "@assets/toov_logo.png";
 
 export default function Footer() {
@@ -20,13 +20,18 @@ export default function Footer() {
               Sıradanlığa meydan okuyan markalar için özel çözümler.
             </p>
             <div className="flex gap-4">
-              {[Twitter, Instagram, Linkedin].map((Icon, i) => (
+              {[
+                { icon: Linkedin, href: "https://www.linkedin.com/company/toovtr/" },
+                { icon: Instagram, href: "https://www.instagram.com/toov.tr/" }
+              ].map((social, i) => (
                 <a 
                   key={i} 
-                  href="#" 
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-primary hover:border-primary hover:text-background transition-all duration-300"
                 >
-                  <Icon size={18} />
+                  <social.icon size={18} />
                 </a>
               ))}
             </div>
