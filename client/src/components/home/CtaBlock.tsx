@@ -6,9 +6,9 @@ export default function CtaBlock() {
       <div className="absolute inset-0 bg-primary/5"></div>
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-5xl md:text-7xl font-display font-bold text-white mb-8">
+          <h2 className="text-5xl md:text-7xl font-display font-bold text-white mb-8 leading-tight">
             Dijital Geleceğinizi <br />
-            <span className="text-primary">Birlikte İnşa Edelim</span>
+            <span className="text-primary block mt-4">Birlikte İnşa Edelim</span>
           </h2>
           <p className="text-xl text-gray-400 mb-12">
             Sıradanlığın ötesine geçmeye hazır mısınız? Projeniz için en doğru stratejiyi belirleyelim.
