@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "wouter";
 import heroBg from "@assets/generated_images/abstract_dark_architectural_tech_background_with_turquoise_accents.png";
-import heroVideo from "@assets/generated_videos/hero_optimized.mp4";
+import heroVideo from "@assets/generated_videos/hero_optimized_v2.mp4";
 import { useState, useEffect } from "react";
 
 export default function Hero() {
