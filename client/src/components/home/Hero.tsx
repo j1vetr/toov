@@ -42,7 +42,7 @@ export default function Hero() {
                 Web Tasarım, Özel Yazılım ve SEO Büyümesi.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-6">
+              <div className="flex flex-row flex-wrap gap-4">
                 <Link href="/iletisim">
                   <a className="group relative px-8 py-4 bg-white text-background font-bold text-lg rounded-sm overflow-hidden inline-flex items-center gap-3">
                     <span className="relative z-10">Projenizi Başlatalım</span>
@@ -77,7 +77,7 @@ export default function Hero() {
                initial={{ opacity: 0, x: 50 }}
                animate={{ opacity: 1, x: 0 }}
                transition={{ duration: 1, delay: 0.8 }}
-               className="absolute bottom-20 right-10 w-56 h-64 border border-white/10 bg-background/80 backdrop-blur-xl p-6 flex flex-col justify-between z-20 hover:border-primary/50 transition-colors group"
+               className="absolute bottom-20 right-10 w-56 h-64 border border-white/10 bg-background/80 backdrop-blur-xl p-6 flex flex-col justify-between z-20 hover:border-primary/50 transition-colors group hidden"
             >
               <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-background font-bold">
                 <ArrowRight className="group-hover:-rotate-45 transition-transform duration-500" />
