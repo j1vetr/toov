@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import SEO from "@/components/SEO";
 
 // Import logos
 import pslLogo from "@assets/logos/psl_logo.png";
@@ -89,6 +90,10 @@ const references = [
 export default function References() {
   return (
     <div className="pt-20 bg-background min-h-screen">
+      <SEO 
+        title="Referanslar" 
+        description="Sektör liderleriyle gerçekleştirdiğimiz başarılı dijital dönüşüm projeleri." 
+      />
       <section className="py-20 container mx-auto px-6">
         <h1 className="text-5xl md:text-7xl font-display font-bold text-white mb-8">
           Değerli <br />
@@ -118,6 +123,7 @@ export default function References() {
                 <img 
                   src={ref.logo} 
                   alt={`${ref.name} Logo`} 
+                  loading="lazy"
                   className="h-32 w-auto object-contain opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 relative z-10 drop-shadow-xl"
                 />
               </div>

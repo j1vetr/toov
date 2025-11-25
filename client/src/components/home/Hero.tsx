@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "wouter";
 import heroBg from "@assets/generated_images/abstract_dark_architectural_tech_background_with_turquoise_accents.png";
-import heroVideo from "@assets/generated_videos/cinematic_digital_data_streams_and_code_abstract_visualization_in_navy_and_turquoise.mp4";
+import heroVideo from "@assets/generated_videos/hero_optimized.mp4";
 
 export default function Hero() {
   return (

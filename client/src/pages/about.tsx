@@ -1,9 +1,14 @@
 import { motion } from "framer-motion";
 import { Award, Users, Lightbulb, Target } from "lucide-react";
+import SEO from "@/components/SEO";
 
 export default function About() {
   return (
     <div className="pt-20 bg-background min-h-screen">
+      <SEO 
+        title="Hakkımızda" 
+        description="TOOV hikayesi, değerleri ve ekibi. Dijital deneyimleri hassasiyetle inşa ediyoruz." 
+      />
       {/* Header */}
       <section className="py-20 container mx-auto px-6">
         <motion.h1 

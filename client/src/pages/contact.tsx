@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
 import mapImage from "@assets/generated_images/minimalist_dark_technical_schematic_map_of_istanbul.png";
+import SEO from "@/components/SEO";
 
 const formSchema = z.object({
   name: z.string().min(2, "İsim en az 2 karakter olmalıdır."),
@@ -36,6 +37,10 @@ export default function Contact() {
 
   return (
     <div className="pt-20 bg-background min-h-screen">
+      <SEO 
+        title="İletişim" 
+        description="Projenizi hayata geçirmek için bizimle iletişime geçin. Adres, telefon ve e-posta bilgilerimiz." 
+      />
       <div className="container mx-auto px-6 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
           {/* Left: Info */}

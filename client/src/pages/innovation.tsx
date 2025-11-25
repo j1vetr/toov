@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Database, Globe, Layout, Server, Shield, Zap, Code2, Cpu } from "lucide-react";
+import SEO from "@/components/SEO";
 
 export default function Innovation() {
   const technologies = [
@@ -18,6 +19,10 @@ export default function Innovation() {
 
   return (
     <div className="pt-20 bg-background min-h-screen">
+      <SEO 
+        title="İnovasyon" 
+        description="React, Next.js, Python ve en son teknolojilerle geliştirdiğimiz inovatif çözümler." 
+      />
       <section className="py-20 container mx-auto px-6">
         <h1 className="text-5xl md:text-7xl font-display font-bold text-white mb-8">
           İnovasyon & <br />

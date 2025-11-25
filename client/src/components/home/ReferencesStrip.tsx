@@ -40,6 +40,7 @@ export default function ReferencesStrip() {
               <img 
                 src={ref.logo} 
                 alt={ref.name}
+                loading="lazy"
                 className="w-32 h-32 object-contain opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 relative z-10 grayscale group-hover:grayscale-0"
               />
               
