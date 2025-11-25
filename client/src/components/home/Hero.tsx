@@ -32,12 +32,16 @@ export default function Hero() {
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white leading-[1.1] mb-8">
-                Hassas <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">Mühendislik,</span><br />
-                <span className="text-primary">Yaratıcı</span> Güç.
+                Yaratıcı <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">Web &</span><br />
+                <span className="text-primary">Yazılım</span> Gücü.
               </h1>
               
-              <div className="flex flex-col sm:flex-row items-start gap-6 mt-10">
+              <p className="text-xl text-gray-300 max-w-2xl mb-10 font-light">
+                Dijital dünyada fark yaratan, performans odaklı web siteleri ve özel yazılım çözümleri geliştiriyoruz.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row items-start gap-6">
                 <Link href="/iletisim">
                   <a className="group relative px-8 py-4 bg-white text-background font-bold text-lg rounded-sm overflow-hidden inline-flex items-center gap-3 translate-y-0 sm:-translate-y-2">
                     <span className="relative z-10">Projenizi Başlatalım</span>
