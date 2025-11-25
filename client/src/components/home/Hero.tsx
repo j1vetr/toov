@@ -2,17 +2,23 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "wouter";
 import heroBg from "@assets/generated_images/abstract_dark_architectural_tech_background_with_turquoise_accents.png";
+import heroVideo from "@assets/generated_videos/dark_abstract_architectural_tech_background_with_slow_moving_turquoise_lights.mp4";
 
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-      {/* Background Image with Overlay */}
+      {/* Background Video with Overlay */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src={heroBg} 
-          alt="TOOV Abstract Background" 
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster={heroBg}
           className="w-full h-full object-cover opacity-40"
-        />
+        >
+          <source src={heroVideo} type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/50 to-background" />
         <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-background/50" />
       </div>
@@ -25,12 +31,6 @@ export default function Hero() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              <div className="inline-block px-4 py-2 mb-6 border border-primary/30 rounded-full bg-primary/10 backdrop-blur-sm">
-                <span className="text-primary text-sm font-medium tracking-wider uppercase">
-                  Geleceğin Teknolojisi
-                </span>
-              </div>
-              
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white leading-[1.1] mb-8">
                 Hassas <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">Mühendislik,</span><br />
