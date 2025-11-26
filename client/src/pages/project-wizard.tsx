@@ -85,18 +85,25 @@ export default function ProjectWizard() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Simulate loading
-    const submitBtn = (e.target as HTMLFormElement).querySelector('button[type="submit"]');
-    if (submitBtn) {
-      submitBtn.setAttribute('disabled', 'true');
-      submitBtn.innerHTML = '<span class="animate-spin mr-2">⏳</span> Gönderiliyor...';
+    try {
+      const response = await fetch("/api/project-wizard", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStep(4); // Success step
+      } else {
+        throw new Error("Failed to submit");
+      }
+    } catch (error) {
+      toast({
+        title: "Hata",
+        description: "Form gönderilemedi. Lütfen tekrar deneyin.",
+        variant: "destructive",
+      });
     }
-    
-    // Simulate API delay
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    // Show success step
-    setStep(4);
   };
 
   const updateField = (field: string, value: any) => {

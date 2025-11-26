@@ -26,13 +26,30 @@ export default function Contact() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    toast({
-      title: "Mesajınız Gönderildi",
-      description: "En kısa sürede size dönüş yapacağız.",
-    });
-    form.reset();
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Mesajınız Gönderildi",
+          description: "En kısa sürede size dönüş yapacağız.",
+        });
+        form.reset();
+      } else {
+        throw new Error("Failed to send message");
+      }
+    } catch (error) {
+      toast({
+        title: "Hata",
+        description: "Mesaj gönderilemedi. Lütfen tekrar deneyin.",
+        variant: "destructive",
+      });
+    }
   }
 
   return (
