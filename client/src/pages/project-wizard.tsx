@@ -16,6 +16,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 import { Link } from "wouter";
+import { getRecaptchaToken } from "@/lib/recaptcha";
 
 // Step 1: Project Type
 const projectTypes = [
@@ -88,10 +89,13 @@ export default function ProjectWizard() {
     setIsSubmitting(true);
     
     try {
+      // Get reCAPTCHA token
+      const recaptchaToken = await getRecaptchaToken("project_wizard");
+
       const response = await fetch("/api/project-wizard", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, recaptchaToken }),
       });
 
       if (response.ok) {

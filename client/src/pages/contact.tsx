@@ -10,6 +10,7 @@ import mapImage from "@assets/generated_images/minimalist_dark_technical_schemat
 import SEO from "@/components/SEO";
 import { useState } from "react";
 import { Loader2, CheckCircle } from "lucide-react";
+import { getRecaptchaToken } from "@/lib/recaptcha";
 
 const formSchema = z.object({
   name: z.string().min(2, "İsim en az 2 karakter olmalıdır."),
@@ -32,10 +33,13 @@ export default function Contact() {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
     try {
+      // Get reCAPTCHA token
+      const recaptchaToken = await getRecaptchaToken("contact_form");
+
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
+        body: JSON.stringify({ ...values, recaptchaToken }),
       });
 
       if (response.ok) {

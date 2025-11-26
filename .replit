@@ -46,3 +46,9 @@ waitForPort = 5000
 
 [agent]
 mockupState = "FULLSTACK"
+
+[userenv]
+
+[userenv.shared]
+RECAPTCHA_SITE_KEY = "6LemyxgsAAAAAPCqx_w-4YlhEPcOKd2k15boHV1e"
+RECAPTCHA_SECRET_KEY = "6LemyxgsAAAAAFL3Otp5r61BK4Hdz985aHgiOiys"

@@ -11,6 +11,38 @@ const logoPath = join(process.cwd(), "attached_assets", "toov_logo.png");
 const logoBase64 = readFileSync(logoPath).toString("base64");
 const logoImg = `<img src="data:image/png;base64,${logoBase64}" alt="TOOV" style="height: 50px; display: block; margin: 0 auto;" />`;
 
+// reCAPTCHA Secret Key
+const RECAPTCHA_SECRET_KEY = process.env.RECAPTCHA_SECRET_KEY || "6LemyxgsAAAAAFL3Otp5r61BK4Hdz985aHgiOiys";
+
+// Verify reCAPTCHA token
+async function verifyRecaptcha(token: string): Promise<boolean> {
+  if (!token) {
+    console.warn("No reCAPTCHA token provided");
+    return true; // Allow submission even without token (fallback)
+  }
+
+  try {
+    const response = await fetch("https://www.google.com/recaptcha/api/siteverify", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: `secret=${RECAPTCHA_SECRET_KEY}&response=${token}`,
+    });
+
+    const data = await response.json();
+    
+    if (data.success && data.score >= 0.5) {
+      console.log(`reCAPTCHA verified: score ${data.score}`);
+      return true;
+    } else {
+      console.warn(`reCAPTCHA failed: score ${data.score || 0}`);
+      return false;
+    }
+  } catch (error) {
+    console.error("reCAPTCHA verification error:", error);
+    return true; // Allow submission on verification error (fallback)
+  }
+}
+
 // Email Configuration
 const transporter = nodemailer.createTransport({
   host: "mail.toov.com.tr",
@@ -30,6 +62,7 @@ const contactFormSchema = z.object({
   name: z.string().min(2),
   email: z.string().email(),
   message: z.string().min(10),
+  recaptchaToken: z.string().optional(),
 });
 
 const projectWizardSchema = z.object({
@@ -42,6 +75,7 @@ const projectWizardSchema = z.object({
   phone: z.string().min(10),
   company: z.string().optional(),
   message: z.string().optional(),
+  recaptchaToken: z.string().optional(),
 });
 
 export async function registerRoutes(app: Express): Promise<Server> {
@@ -50,6 +84,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.post("/api/contact", async (req, res) => {
     try {
       const data = contactFormSchema.parse(req.body);
+
+      // Verify reCAPTCHA
+      const isHuman = await verifyRecaptcha(data.recaptchaToken || "");
+      if (!isHuman) {
+        return res.status(400).json({ success: false, message: "reCAPTCHA doğrulaması başarısız" });
+      }
 
       // Email to Admin
       await transporter.sendMail({
@@ -130,6 +170,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.post("/api/project-wizard", async (req, res) => {
     try {
       const data = projectWizardSchema.parse(req.body);
+
+      // Verify reCAPTCHA
+      const isHuman = await verifyRecaptcha(data.recaptchaToken || "");
+      if (!isHuman) {
+        return res.status(400).json({ success: false, message: "reCAPTCHA doğrulaması başarısız" });
+      }
 
       // Map project type labels
       const projectTypeLabels: Record<string, string> = {
