@@ -19,8 +19,8 @@ export default function ReferencesStrip() {
   return (
     <section className="py-24 bg-background border-b border-white/5 overflow-hidden">
       <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row items-end justify-between mb-12">
-          <h2 className="text-3xl font-display font-bold text-white">Seçkin Referanslar</h2>
+        <div className="flex flex-col md:flex-row items-center md:items-end justify-between mb-12">
+          <h2 className="text-3xl font-display font-bold text-white text-center md:text-left">Seçkin Referanslar</h2>
           <Link href="/referanslar">
             <a className="text-primary text-sm font-medium hover:underline mt-4 md:mt-0">
               Tümünü Gör
