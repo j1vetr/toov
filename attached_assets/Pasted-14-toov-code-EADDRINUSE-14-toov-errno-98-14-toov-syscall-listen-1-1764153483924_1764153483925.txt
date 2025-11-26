@@ -1,0 +1,51 @@
+14|toov    |   code: 'EADDRINUSE',
+14|toov    |   errno: -98,
+14|toov    |   syscall: 'listen',
+14|toov    |   address: '0.0.0.0',
+14|toov    |   port: 5000
+14|toov    | }
+14|toov    | Error: listen EADDRINUSE: address already in use 0.0.0.0:5000
+14|toov    |     at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+14|toov    |     at listenInCluster (node:net:1965:12)
+14|toov    |     at doListen (node:net:2139:7)
+14|toov    |     at process.processTicksAndRejections (node:internal/process/task_queues:83:21) {
+14|toov    |   code: 'EADDRINUSE',
+14|toov    |   errno: -98,
+14|toov    |   syscall: 'listen',
+14|toov    |   address: '0.0.0.0',
+14|toov    |   port: 5000
+14|toov    | }
+14|toov    | Error: listen EADDRINUSE: address already in use 0.0.0.0:5000
+14|toov    |     at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+14|toov    |     at listenInCluster (node:net:1965:12)
+14|toov    |     at doListen (node:net:2139:7)
+14|toov    |     at process.processTicksAndRejections (node:internal/process/task_queues:83:21) {
+14|toov    |   code: 'EADDRINUSE',
+14|toov    |   errno: -98,
+14|toov    |   syscall: 'listen',
+14|toov    |   address: '0.0.0.0',
+14|toov    |   port: 5000
+14|toov    | }
+14|toov    | Error: listen EADDRINUSE: address already in use 0.0.0.0:5000
+14|toov    |     at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+14|toov    |     at listenInCluster (node:net:1965:12)
+14|toov    |     at doListen (node:net:2139:7)
+14|toov    |     at process.processTicksAndRejections (node:internal/process/task_queues:83:21) {
+14|toov    |   code: 'EADDRINUSE',
+14|toov    |   errno: -98,
+14|toov    |   syscall: 'listen',
+14|toov    |   address: '0.0.0.0',
+14|toov    |   port: 5000
+14|toov    | }
+14|toov    | Error: listen EADDRINUSE: address already in use 0.0.0.0:5000
+14|toov    |     at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+14|toov    |     at listenInCluster (node:net:1965:12)
+14|toov    |     at doListen (node:net:2139:7)
+14|toov    |     at process.processTicksAndRejections (node:internal/process/task_queues:83:21) {
+14|toov    |   code: 'EADDRINUSE',
+14|toov    |   errno: -98,
+14|toov    |   syscall: 'listen',
+14|toov    |   address: '0.0.0.0',
+14|toov    |   port: 5000
+14|toov    | }
+
