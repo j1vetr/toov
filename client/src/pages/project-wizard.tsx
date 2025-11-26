@@ -2,10 +2,10 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   Monitor, Smartphone, Search, Code, 
-  ArrowRight, ArrowLeft, Check, Calendar, 
-  CreditCard, User, Mail, Phone, Building,
+  ArrowRight, ArrowLeft, Check, CreditCard, 
+  User, Mail, Phone, Building,
   Layers, ShoppingCart, Globe, Database,
-  Settings, Zap, BarChart
+  Settings, Zap, BarChart, Plus, Edit
 } from "lucide-react";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
@@ -31,29 +31,27 @@ const typeQuestions = {
     { id: "web_ecommerce", label: "E-Ticaret (Online Satış) olacak mı?", icon: ShoppingCart },
     { id: "web_cms", label: "Yönetim Paneli (CMS) istiyor musunuz?", icon: Settings },
     { id: "web_multilang", label: "Çoklu dil desteği gerekli mi?", icon: Globe },
+    { id: "web_other", label: "Diğer", icon: Plus },
   ],
   mobile: [
     { id: "mob_ios", label: "iOS (iPhone/iPad) Uygulaması", icon: Smartphone },
     { id: "mob_android", label: "Android Uygulaması", icon: Smartphone },
     { id: "mob_panel", label: "Yönetim Paneli gerekli mi?", icon: Settings },
+    { id: "mob_other", label: "Diğer", icon: Plus },
   ],
   seo: [
     { id: "seo_audit", label: "Kapsamlı SEO Analizi (Audit)", icon: BarChart },
     { id: "seo_content", label: "İçerik Üretimi & Blog Yönetimi", icon: Layers },
     { id: "seo_ads", label: "Google / Meta Reklam Yönetimi", icon: Zap },
+    { id: "seo_other", label: "Diğer", icon: Plus },
   ],
   custom: [
     { id: "soft_crm", label: "CRM / Müşteri Yönetimi", icon: User },
     { id: "soft_erp", label: "ERP / Stok & Muhasebe", icon: Database },
     { id: "soft_api", label: "3. Parti Entegrasyonlar (API)", icon: Code },
+    { id: "soft_other", label: "Diğer", icon: Plus },
   ]
 };
-
-// Step 2: Timeline
-const timelines = [
-  { id: "urgent", label: "Çok Acil (1 - 2 Hafta)" },
-  { id: "standard", label: "Standart (2 - 4 Hafta)" },
-];
 
 export default function ProjectWizard() {
   const [step, setStep] = useState(1);
@@ -61,12 +59,12 @@ export default function ProjectWizard() {
     projectType: "",
     features: [] as string[],
     budget: "",
-    timeline: "",
+    projectDetails: "", // New field for project details/expectations in Step 2
     name: "",
     email: "",
     phone: "",
     company: "",
-    message: ""
+    message: "" // Additional contact notes (Step 3)
   });
   const { toast } = useToast();
 
@@ -75,10 +73,8 @@ export default function ProjectWizard() {
       toast({ title: "Lütfen bir proje türü seçin", variant: "destructive" });
       return;
     }
-    if (step === 2 && !formData.timeline) {
-      toast({ title: "Lütfen bir zaman çizelgesi seçin", variant: "destructive" });
-      return;
-    }
+    // In Step 2, projectDetails is optional but encouraged.
+    // Features and budget are also optional.
     setStep(prev => prev + 1);
   };
 
@@ -208,7 +204,7 @@ export default function ProjectWizard() {
                   <h2 className="text-3xl font-display font-bold text-white">
                     Proje <span className="text-primary">Detayları</span>
                   </h2>
-                  <p className="text-gray-400">Projeniz hakkında biraz daha detay verin.</p>
+                  <p className="text-gray-400">Beklentilerinizi ve ihtiyaçlarınızı bize anlatın.</p>
                 </div>
 
                 <div className="space-y-10">
@@ -264,28 +260,17 @@ export default function ProjectWizard() {
                       <p className="text-xs text-gray-500 mt-2">Bütçe aralığı belirtmeniz size en uygun çözümü sunmamızı sağlar.</p>
                     </div>
 
-                    {/* Timeline Selection */}
+                    {/* Project Details / Expectations Textarea */}
                     <div>
                       <Label className="text-lg text-white mb-4 block flex items-center gap-2">
-                        <Calendar size={18} className="text-primary" /> Zaman Çizelgesi
+                        <Edit size={18} className="text-primary" /> Proje Detayları & Beklentiler
                       </Label>
-                      <div className="grid gap-3">
-                        {timelines.map((time) => (
-                          <button
-                            key={time.id}
-                            onClick={() => updateField("timeline", time.id)}
-                            className={cn(
-                              "py-3 px-4 rounded-lg border text-sm font-medium transition-all text-left flex items-center justify-between group",
-                              formData.timeline === time.id
-                                ? "bg-primary/10 border-primary text-primary"
-                                : "bg-white/[0.03] border-white/10 text-gray-400 hover:border-primary/50 hover:text-white"
-                            )}
-                          >
-                            {time.label}
-                            {formData.timeline === time.id && <Check size={16} />}
-                          </button>
-                        ))}
-                      </div>
+                      <Textarea 
+                        placeholder="Projenizle ilgili aklınızdaki detayları, özel isteklerinizi veya varsa örnek aldığınız siteleri buraya yazabilirsiniz..."
+                        className="min-h-[120px] bg-white/[0.03] border-white/10 text-white focus:border-primary/50 text-base"
+                        value={formData.projectDetails}
+                        onChange={(e) => updateField("projectDetails", e.target.value)}
+                      />
                     </div>
                   </div>
                 </div>
@@ -391,11 +376,11 @@ export default function ProjectWizard() {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="message" className="text-white">Proje Hakkında Ek Notlar</Label>
+                    <Label htmlFor="message" className="text-white">Ek Notlar (Opsiyonel)</Label>
                     <Textarea 
                       id="message" 
-                      placeholder="Projenizden kısaca bahsedin..." 
-                      className="min-h-[120px] bg-white/[0.03] border-white/10 text-white focus:border-primary/50"
+                      placeholder="Eklemek istediğiniz başka bir şey var mı?" 
+                      className="min-h-[100px] bg-white/[0.03] border-white/10 text-white focus:border-primary/50"
                       value={formData.message}
                       onChange={(e) => updateField("message", e.target.value)}
                     />
