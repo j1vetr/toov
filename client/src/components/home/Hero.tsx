@@ -42,20 +42,20 @@ export default function Hero() {
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white leading-[1.1] mb-8">
-                Eski Köye <br />
-                Yeni{" "}
-                <span className="inline-block relative min-w-[150px]">
+                Bugünü <br />
+                Kodluyoruz, <br />
+                <span className="inline-block relative min-w-[220px]">
                   <AnimatePresence mode="wait">
                     {!showToov ? (
                       <motion.span
-                        key="adet"
+                        key="yarin"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20, filter: "blur(10px)" }}
                         transition={{ duration: 0.5 }}
                         className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500 inline-block absolute left-0"
                       >
-                        Adet
+                        Yarın Sizin
                       </motion.span>
                     ) : (
                       <motion.span
@@ -69,7 +69,7 @@ export default function Hero() {
                       </motion.span>
                     )}
                   </AnimatePresence>
-                  <span className="invisible">Adet</span> {/* Spacer */}
+                  <span className="invisible">Yarın Sizin</span> {/* Spacer */}
                 </span>
               </h1>
               
