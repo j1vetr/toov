@@ -1,0 +1,46 @@
+root@162-55-4-35:/var/www/toov# sudo chown -R www-data:www-data /var/www/toov
+root@162-55-4-35:/var/www/toov# sudo find /var/www/toov -type d -exec chmod 755 {} \;
+sudo find /var/www/toov -type f -exec chmod 644 {} \;
+^C
+root@162-55-4-35:/var/www/toov# ls -la /var/www/toov
+total 360
+drwxr-xr-x   9 www-data www-data   4096 Nov 26 11:11 .
+drwxr-xr-x  25 root     root       4096 Nov 26 11:10 ..
+drwxr-xr-x   5 www-data www-data   4096 Nov 26 11:10 attached_assets
+drwxr-xr-x   4 www-data www-data   4096 Nov 26 11:10 client
+-rw-r--r--   1 www-data www-data    451 Nov 26 11:10 components.json
+drwxr-xr-x   3 www-data www-data   4096 Nov 26 11:11 dist
+-rw-r--r--   1 www-data www-data    325 Nov 26 11:10 drizzle.config.ts
+drwxr-xr-x   8 www-data www-data   4096 Nov 26 11:10 .git
+-rw-r--r--   1 www-data www-data     67 Nov 26 11:10 .gitignore
+drwxr-xr-x 236 www-data www-data  12288 Nov 26 11:11 node_modules
+-rw-r--r--   1 www-data www-data   3659 Nov 26 11:10 package.json
+-rw-r--r--   1 www-data www-data 286131 Nov 26 11:11 package-lock.json
+-rw-r--r--   1 www-data www-data     80 Nov 26 11:10 postcss.config.js
+-rw-r--r--   1 www-data www-data    800 Nov 26 11:10 .replit
+drwxr-xr-x   2 www-data www-data   4096 Nov 26 11:10 server
+drwxr-xr-x   2 www-data www-data   4096 Nov 26 11:10 shared
+-rw-r--r--   1 www-data www-data    701 Nov 26 11:10 tsconfig.json
+-rw-r--r--   1 www-data www-data   1330 Nov 26 11:10 vite.config.ts
+-rw-r--r--   1 www-data www-data   2333 Nov 26 11:10 vite-plugin-meta-images.ts
+root@162-55-4-35:/var/www/toov# sudo tail -n 20 /var/log/nginx/error.log
+2025/11/26 10:54:23 [crit] 2748663#2748663: *39129 connect() to unix:/var/www/toov/toov.sock failed (2: No such file or directory) while connecting to upstream, client: 193.142.58.43, server: toov.com.tr, request: "GET / HTTP/1.0", upstream: "http://unix:/var/www/toov/toov.sock:/", host: "toov.com.tr"
+2025/11/26 10:54:24 [crit] 2748663#2748663: *39129 connect() to unix:/var/www/toov/toov.sock failed (2: No such file or directory) while connecting to upstream, client: 193.142.58.43, server: toov.com.tr, request: "GET / HTTP/1.0", upstream: "http://unix:/var/www/toov/toov.sock:/", host: "toov.com.tr"
+2025/11/26 10:54:25 [crit] 2748663#2748663: *39129 connect() to unix:/var/www/toov/toov.sock failed (2: No such file or directory) while connecting to upstream, client: 193.142.58.43, server: toov.com.tr, request: "GET / HTTP/1.0", upstream: "http://unix:/var/www/toov/toov.sock:/", host: "toov.com.tr"
+2025/11/26 10:54:26 [crit] 2748663#2748663: *39129 connect() to unix:/var/www/toov/toov.sock failed (2: No such file or directory) while connecting to upstream, client: 193.142.58.43, server: toov.com.tr, request: "GET / HTTP/1.0", upstream: "http://unix:/var/www/toov/toov.sock:/", host: "toov.com.tr"
+2025/11/26 10:56:15 [error] 2748663#2748663: *39222 open() "/var/www/yardimseli/dist/public/favicon.ico" failed (2: No such file or directory), client: 162.142.125.33, server: yardimselidernegi.com, request: "GET /favicon.ico HTTP/1.1", host: "162.55.4.35"
+2025/11/26 11:16:24 [notice] 136908#136908: signal process started
+2025/11/26 11:16:30 [notice] 137028#137028: signal process started
+2025/11/26 11:23:52 [notice] 145770#145770: signal process started
+2025/11/26 11:23:54 [notice] 145798#145798: signal process started
+2025/11/26 11:24:02 [error] 145799#145799: *34 directory index of "/var/www/toov/" is forbidden, client: 78.188.5.137, server: toov.com.tr, request: "GET / HTTP/2.0", host: "toov.com.tr"
+2025/11/26 11:24:02 [error] 145799#145799: *34 directory index of "/var/www/toov/" is forbidden, client: 78.188.5.137, server: toov.com.tr, request: "GET / HTTP/2.0", host: "toov.com.tr"
+2025/11/26 11:24:02 [error] 145799#145799: *34 open() "/var/www/toov/favicon.ico" failed (2: No such file or directory), client: 78.188.5.137, server: toov.com.tr, request: "GET /favicon.ico HTTP/2.0", host: "toov.com.tr", referrer: "https://toov.com.tr/"
+2025/11/26 11:24:05 [error] 145799#145799: *41 directory index of "/var/www/toov/" is forbidden, client: 78.188.5.137, server: toov.com.tr, request: "GET / HTTP/2.0", host: "toov.com.tr"
+2025/11/26 11:24:06 [error] 145799#145799: *41 directory index of "/var/www/toov/" is forbidden, client: 78.188.5.137, server: toov.com.tr, request: "GET / HTTP/2.0", host: "toov.com.tr"
+2025/11/26 11:25:08 [error] 145799#145799: *143 directory index of "/var/www/toov/" is forbidden, client: 74.7.242.11, server: toov.com.tr, request: "GET / HTTP/2.0", host: "toov.com.tr"
+2025/11/26 11:25:18 [error] 145799#145799: *34 directory index of "/var/www/toov/" is forbidden, client: 78.188.5.137, server: toov.com.tr, request: "GET / HTTP/2.0", host: "toov.com.tr"
+2025/11/26 11:25:19 [error] 145799#145799: *34 directory index of "/var/www/toov/" is forbidden, client: 78.188.5.137, server: toov.com.tr, request: "GET / HTTP/2.0", host: "toov.com.tr"
+2025/11/26 11:25:19 [error] 145799#145799: *34 directory index of "/var/www/toov/" is forbidden, client: 78.188.5.137, server: toov.com.tr, request: "GET / HTTP/2.0", host: "toov.com.tr"
+2025/11/26 11:25:22 [error] 145799#145799: *41 directory index of "/var/www/toov/" is forbidden, client: 78.188.5.137, server: toov.com.tr, request: "GET / HTTP/2.0", host: "toov.com.tr"
+2025/11/26 11:25:22 [error] 145799#145799: *41 directory index of "/var/www/toov/" is forbidden, client: 78.188.5.137, server: toov.com.tr, request: "GET / HTTP/2.0", host: "toov.com.tr"
