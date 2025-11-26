@@ -14,6 +14,7 @@ import nasilOlduLogo from "@assets/logos/nasil_oldu_logo.png";
 import postaLogo from "@assets/logos/posta_logo.png";
 import besinLogo from "@assets/logos/besin_logo.png";
 import emeraldLogo from "@assets/logos/emerald_logo.svg";
+import yosunLogo from "@assets/logos/yosun_logo.webp";
 
 const references = [
   {
@@ -92,6 +93,13 @@ const references = [
     logo: emeraldLogo,
     description: "Lüks konut ve emlak sektöründe prestijli projeler sunan öncü gayrimenkul firması.",
     category: "Emlak & SEO"
+  },
+  {
+    name: "Yosun Restaurant",
+    url: "https://www.yosunrestaurant.net/",
+    logo: yosunLogo,
+    description: "Modern Türk mutfağı deneyimi sunan restoran için QR menü sistemi ve web tasarım çözümü.",
+    category: "Restoran & QR Menü"
   }
 ];
 
