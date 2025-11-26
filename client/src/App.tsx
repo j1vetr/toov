@@ -17,6 +17,7 @@ import KVKK from "@/pages/kvkk";
 import ProjectWizard from "@/pages/project-wizard";
 import ScrollToTop from "@/components/ScrollToTop";
 import WizardFab from "@/components/WizardFab";
+import WhatsAppFab from "@/components/WhatsAppFab";
 
 function Router() {
   return (
@@ -47,6 +48,7 @@ function App() {
           </main>
           <Footer />
           <WizardFab />
+          <WhatsAppFab />
         </div>
         <Toaster />
       </TooltipProvider>
