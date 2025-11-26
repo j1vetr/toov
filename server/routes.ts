@@ -3,6 +3,13 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import nodemailer from "nodemailer";
 import { z } from "zod";
+import { readFileSync } from "fs";
+import { join } from "path";
+
+// TOOV Logo as Base64
+const logoPath = join(process.cwd(), "attached_assets", "toov_logo.png");
+const logoBase64 = readFileSync(logoPath).toString("base64");
+const logoImg = `<img src="data:image/png;base64,${logoBase64}" alt="TOOV" style="height: 50px; display: block; margin: 0 auto;" />`;
 
 // Email Configuration
 const transporter = nodemailer.createTransport({
@@ -81,7 +88,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
             <div style="background: linear-gradient(135deg, #1A2332 0%, #2d3e50 100%); padding: 30px; text-align: center;">
-              <h1 style="color: #00d9ff; margin: 0; font-size: 28px;">TOOV</h1>
+              ${logoImg}
             </div>
             
             <div style="padding: 30px; background: #fff;">
@@ -216,8 +223,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
             <div style="background: linear-gradient(135deg, #1A2332 0%, #2d3e50 100%); padding: 30px; text-align: center;">
-              <h1 style="color: #00d9ff; margin: 0; font-size: 28px;">TOOV</h1>
-              <p style="color: #fff; margin: 10px 0 0 0;">Proje Talebiniz Alındı</p>
+              ${logoImg}
+              <p style="color: #fff; margin: 15px 0 0 0; font-size: 18px; font-weight: bold;">Proje Talebiniz Alındı</p>
             </div>
             
             <div style="padding: 30px; background: #fff;">
