@@ -13,6 +13,7 @@ import yardimSeliLogo from "@assets/logos/yardim_logo.png";
 import nasilOlduLogo from "@assets/logos/nasil_oldu_logo.png";
 import postaLogo from "@assets/logos/posta_logo.png";
 import besinLogo from "@assets/logos/besin_logo.png";
+import emeraldLogo from "@assets/logos/emerald_logo.svg";
 
 const references = [
   {
@@ -84,6 +85,13 @@ const references = [
     logo: besinLogo,
     description: "Sağlıklı yaşam için detaylı besin değerleri ve kalori analiz platformu.",
     category: "Sağlık & Veri"
+  },
+  {
+    name: "Emerald Mansion",
+    url: "https://emeraldmansion.com/",
+    logo: emeraldLogo,
+    description: "Lüks konut ve emlak sektöründe prestijli projeler sunan öncü gayrimenkul firması.",
+    category: "Emlak & SEO"
   }
 ];
 
