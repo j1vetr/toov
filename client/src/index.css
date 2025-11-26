@@ -26,7 +26,7 @@
   --color-popover-foreground: hsl(210 40% 98%);
 
   /* Primary: Electric Turquoise */
-  --color-primary: hsl(174 100% 50%);
+  --color-primary: #00d9ff;
   --color-primary-foreground: hsl(222 47% 11%);
 
   /* Secondary: Muted Navy/Grey for subtlety */
@@ -38,7 +38,7 @@
   --color-muted-foreground: hsl(215 20% 65%);
 
   /* Accent: Used for hover states or highlights */
-  --color-accent: hsl(174 100% 29%);
+  --color-accent: #00a3cc;
   --color-accent-foreground: hsl(210 40% 98%);
 
   --color-destructive: hsl(0 63% 31%);
@@ -46,9 +46,9 @@
 
   --color-border: hsl(217 33% 20%);
   --color-input: hsl(217 33% 20%);
-  --color-ring: hsl(174 100% 50%);
+  --color-ring: #00d9ff;
 
-  --color-chart-1: hsl(174 100% 50%);
+  --color-chart-1: #00d9ff;
   --color-chart-2: hsl(190 90% 50%);
   --color-chart-3: hsl(210 80% 60%);
   --color-chart-4: hsl(250 60% 60%);
@@ -85,7 +85,7 @@
     border-radius: 4px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: hsl(174 100% 40%);
+    background: #00d9ff;
   }
 
   /* Glassmorphism Utilities */
