@@ -32,7 +32,7 @@ export default function WhyToov() {
                  <img 
                    src={toovLogo} 
                    alt="TOOV Logo" 
-                   className="w-[140px] h-auto object-contain relative z-10 drop-shadow-[0_0_15px_rgba(0,255,200,0.3)]"
+                   className="w-[200px] h-auto object-contain relative z-10 drop-shadow-[0_0_15px_rgba(0,255,200,0.3)]"
                  />
                </div>
              </motion.div>
