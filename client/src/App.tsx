@@ -14,12 +14,14 @@ import References from "@/pages/references";
 import Contact from "@/pages/contact";
 import PrivacyPolicy from "@/pages/privacy-policy";
 import KVKK from "@/pages/kvkk";
+import ProjectWizard from "@/pages/project-wizard";
 import ScrollToTop from "@/components/ScrollToTop";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/proje-baslat" component={ProjectWizard} />
       <Route path="/hizmetlerimiz" component={Services} />
       <Route path="/hakkimizda" component={About} />
       <Route path="/inovasyon" component={Innovation} />

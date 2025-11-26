@@ -62,6 +62,12 @@ export default function Navbar() {
               </a>
             </Link>
           ))}
+          
+          <Link href="/proje-baslat">
+            <a className="ml-4 px-6 py-2.5 bg-primary text-background font-bold text-sm rounded-full hover:bg-primary/90 hover:scale-105 transition-all duration-300 shadow-[0_0_20px_rgba(0,217,255,0.3)] hover:shadow-[0_0_30px_rgba(0,217,255,0.5)]">
+              Projeye Başla
+            </a>
+          </Link>
         </nav>
 
         {/* Mobile Menu Button */}
@@ -95,6 +101,15 @@ export default function Navbar() {
                   </a>
                 </Link>
               ))}
+              
+              <Link href="/proje-baslat">
+                <a
+                  onClick={() => setIsOpen(false)} 
+                  className="mt-4 w-full py-4 bg-primary text-background font-bold text-lg rounded-xl text-center hover:bg-primary/90 transition-colors"
+                >
+                  Projeye Başla
+                </a>
+              </Link>
             </motion.div>
           )}
         </AnimatePresence>
