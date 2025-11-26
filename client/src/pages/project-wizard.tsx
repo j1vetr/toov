@@ -84,9 +84,54 @@ export default function ProjectWizard() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send data to backend
-    console.log("Form Data:", formData);
-    setStep(4); // Success step
+    
+    // Construct email body
+    const subject = `Yeni Proje Talebi: ${formData.name} - ${projectTypes.find(t => t.id === formData.projectType)?.label}`;
+    
+    // Get selected features labels
+    const selectedFeatures = formData.features
+      .map(fid => {
+        // Flatten features from all types to find label
+        const allFeatures = Object.values(typeQuestions).flat();
+        return allFeatures.find(f => f.id === fid)?.label;
+      })
+      .filter(Boolean)
+      .join(", ");
+
+    const body = `
+Merhaba TOOV Ekibi,
+
+Web sitesi üzerinden yeni bir proje talebi oluşturdum. Detaylar aşağıdadır:
+
+👤 KİŞİSEL BİLGİLER
+------------------
+Ad Soyad: ${formData.name}
+Firma: ${formData.company || "-"}
+E-posta: ${formData.email}
+Telefon: ${formData.phone}
+
+🚀 PROJE DETAYLARI
+------------------
+Proje Türü: ${projectTypes.find(t => t.id === formData.projectType)?.label}
+Seçilen Özellikler: ${selectedFeatures || "Belirtilmedi"}
+Bütçe: ${formData.budget ? formData.budget + " ₺" : "Belirtilmedi"}
+
+📝 BEKLENTİLER & DETAYLAR
+------------------------
+${formData.projectDetails || "Belirtilmedi"}
+
+📌 EK NOTLAR
+-----------
+${formData.message || "-"}
+
+İyi çalışmalar.
+    `.trim();
+
+    // Open mail client
+    window.location.href = `mailto:hello@toov.com.tr?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    // Show success step
+    setStep(4);
   };
 
   const updateField = (field: string, value: any) => {
