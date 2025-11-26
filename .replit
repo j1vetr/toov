@@ -52,3 +52,6 @@ mockupState = "FULLSTACK"
 [userenv.shared]
 RECAPTCHA_SITE_KEY = "6LemyxgsAAAAAPCqx_w-4YlhEPcOKd2k15boHV1e"
 RECAPTCHA_SECRET_KEY = "6LemyxgsAAAAAFL3Otp5r61BK4Hdz985aHgiOiys"
+SMTP_HOST = "mail.toov.com.tr"
+SMTP_USER = "no-reply@toov.com.tr"
+SMTP_PASSWORD = "Toov1234@@NoRply"

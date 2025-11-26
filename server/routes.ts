@@ -45,12 +45,12 @@ async function verifyRecaptcha(token: string): Promise<boolean> {
 
 // Email Configuration
 const transporter = nodemailer.createTransport({
-  host: "mail.toov.com.tr",
+  host: process.env.SMTP_HOST || "mail.toov.com.tr",
   port: 587,
   secure: false, // Use TLS
   auth: {
-    user: "no-reply@toov.com.tr",
-    pass: "Toov1234@@NoRply",
+    user: process.env.SMTP_USER || "no-reply@toov.com.tr",
+    pass: process.env.SMTP_PASSWORD || "Toov1234@@NoRply",
   },
   tls: {
     rejectUnauthorized: false
