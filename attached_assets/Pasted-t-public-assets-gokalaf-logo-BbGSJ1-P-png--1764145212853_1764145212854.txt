@@ -1,0 +1,1102 @@
+t/public/assets/gokalaf_logo-BbGSJ1_P.png                                                           15.83 kB
+../dist/public/assets/psl_logo-DVPzZNgh.png                                                               16.48 kB
+../dist/public/assets/toov_logo-DODYNPrj.png                                                              21.34 kB
+../dist/public/assets/nasil_oldu_logo-MDgoilZ4.png                                                        23.38 kB
+../dist/public/assets/lacivert_logo-WC73pPaY.png                                                          25.51 kB
+../dist/public/assets/besin_logo-DB6jWdvn.png                                                             44.06 kB
+../dist/public/assets/ade_logo-gu-5770B.png                                                               44.13 kB
+../dist/public/assets/kurlar_logo-7zW993dl.png                                                            45.76 kB
+../dist/public/assets/posta_logo-V0IGW_0j.png                                                             95.85 kB
+../dist/public/assets/yardim_logo-DO-Txw9C.png                                                           163.96 kB
+../dist/public/assets/abstract_digital_glitch_void_in_navy_and_turquoise_for_404_page-CIuR8X9W.png       949.55 kB
+../dist/public/assets/hero_optimized_v2-DWvgMN2g.mp4                                                   1,004.68 kB
+../dist/public/assets/abstract_dark_architectural_tech_background_with_turquoise_accents-DZbq_4yQ.png  1,068.00 kB
+../dist/public/assets/minimalist_dark_technical_schematic_map_of_istanbul-Nii01cMp.png                 2,194.28 kB
+../dist/public/assets/index-DQi1unvK.css                                                                 111.52 kB │ gzip:  17.77 kB
+../dist/public/assets/index-CQR4t4Ub.js                                                                  585.44 kB │ gzip: 183.20 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 5.63s
+
+  dist/index.js  2.5kb
+
+⚡ Done in 3ms
+root@162-55-4-35:/var/www/toov# sudo nano /etc/nginx/sites-available/toov1.conf
+root@162-55-4-35:/var/www/toov# sudo nano /etc/nginx/sites-available/capital.conf
+root@162-55-4-35:/var/www/toov# sudo nano /etc/nginx/sites-available/toov1.conf
+root@162-55-4-35:/var/www/toov# sudo ln -s /etc/nginx/sites-available/toov1 /etc/nginx/sites-enabled/
+root@162-55-4-35:/var/www/toov# sudo nginx -t
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+root@162-55-4-35:/var/www/toov# sudo systemctl restart nginx
+root@162-55-4-35:/var/www/toov# history
+  994  PGPASSWORD=Dijita1453LSJ psql -h localhost -U nasiloldu_user -d nasiloldu << 'EOF'
+  995  TRUNCATE TABLE persons CASCADE;
+  996  TRUNCATE TABLE death_causes CASCADE;
+  997  TRUNCATE TABLE professions CASCADE;
+  998  TRUNCATE TABLE countries CASCADE;
+  999  TRUNCATE TABLE categories CASCADE;
+ 1000  TRUNCATE TABLE admins CASCADE;
+ 1001  EOF
+ 1002  PGPASSWORD=Dijita1453LSJ psql -h localhost -U nasiloldu_user -d nasiloldu < nasiloldu_db_export.sql
+ 1003  npm run build
+ 1004  pm2 restart nasiloldu
+ 1005  PGPASSWORD=Dijita1453LSJ pg_dump -h localhost -U nasiloldu_user -d nasiloldu > backup_$(date +%Y%m%d_%H%M%S).sql && PGPASSWORD=Dijita1453LSJ psql -h localhost -U nasiloldu_user -d nasiloldu -c "DROP TABLE IF EXISTS persons CASCADE; DROP TABLE IF EXISTS death_causes CASCADE; DROP TABLE IF EXISTS professions CASCADE; DROP TABLE IF EXISTS countries CASCADE; DROP TABLE IF EXISTS categories CASCADE; DROP TABLE IF EXISTS admins CASCADE; DROP EXTENSION IF EXISTS unaccent CASCADE;" && PGPASSWORD=Dijita1453LSJ psql -h localhost -U nasiloldu_user -d nasiloldu < nasiloldu_db_export.sql && echo "✅ Import tamamlandı!" && PGPASSWORD=Dijita1453LSJ psql -h localhost -U nasiloldu_user -d nasiloldu -c "SELECT COUNT(*) as persons FROM persons; SELECT COUNT(*) as countries FROM countries;"
+ 1006  git pull origin main
+ 1007  npm run build
+ 1008  pm2 restart nasiloldu
+ 1009  PGPASSWORD=Dijita1453LSJ pg_dump -h localhost -U nasiloldu_user -d nasiloldu > backup_$(date +%Y%m%d_%H%M%S).sql && PGPASSWORD=Dijita1453LSJ psql -h localhost -U nasiloldu_user -d nasiloldu -c "DROP TABLE IF EXISTS persons CASCADE; DROP TABLE IF EXISTS death_causes CASCADE; DROP TABLE IF EXISTS professions CASCADE; DROP TABLE IF EXISTS countries CASCADE; DROP TABLE IF EXISTS categories CASCADE; DROP TABLE IF EXISTS admins CASCADE; DROP EXTENSION IF EXISTS unaccent CASCADE;" && PGPASSWORD=Dijita1453LSJ psql -h localhost -U nasiloldu_user -d nasiloldu < nasiloldu_db_export_latest.sql && echo "✅ Import tamamlandı!" && PGPASSWORD=Dijita1453LSJ psql -h localhost -U nasiloldu_user -d nasiloldu -c "SELECT COUNT(*) as persons FROM persons; SELECT COUNT(*) as countries FROM countries;"
+ 1010  npm run build
+ 1011  pm2 restart nasiloldu
+ 1012  cd /var
+ 1013  cd www
+ 1014  ls
+ 1015  cd nomadetour
+ 1016  ls
+ 1017  git pull origin main
+ 1018  npm run build
+ 1019  pm2 status
+ 1020  pm2 restart maison-nomade-config
+ 1021  pm2 restart maison-nomade-conf
+ 1022  pm2 list
+ 1023  pm2 restart maison-nomade-contact
+ 1024  git pull origin main
+ 1025  npm run build
+ 1026  pm2 restart maison-nomade-contact
+ 1027  cd /var
+ 1028  cd www
+ 1029  ls
+ 1030  sudo mkdir -p /var/www/besindegerim
+ 1031  sudo chown -R $USER:$USER /var/www/besindegerim
+ 1032  cd /var/www/besindegerim
+ 1033  git clone https://github.com/j1vetr/besindegerim.git .
+ 1034  npm install --production=false
+ 1035  nano .env
+ 1036  CREATE DATABASE besindegerim_db;
+ 1037  sudo -u postgres psql
+ 1038  nano .env
+ 1039  npm run db:push
+ 1040  sudo -u postgres psql
+ 1041  nano .env
+ 1042  npm run db:push
+ 1043  psql -U besindegerim_admin -d besindegerim_db -h localhost
+ 1044  npm run build
+ 1045  cd var
+ 1046  cd /var
+ 1047  cd www
+ 1048  ls
+ 1049  cd posta-kodlari
+ 1050  ls
+ 1051  cd /var
+ 1052  cd www
+ 1053  ls
+ 1054  cd besindegerim
+ 1055  ls
+ 1056  nano ecosystem.config.cjs
+ 1057  mkdir -p logs
+ 1058  pm2 start ecosystem.config.cjs
+ 1059  pm2 status
+ 1060  pm2 logs besindegerim --lines 30
+ 1061  cd /var
+ 1062  cd www
+ 1063  cd besindegerim
+ 1064  nano ecosystem.config.cjfs
+ 1065  nano ecosystem.config.cfs
+ 1066  nano ecosystem.config.cjs
+ 1067  pm2 delete besindegerim
+ 1068  pm2 start ecosystem.config.cjs
+ 1069  pm2 logs besindegerim --lines 30
+ 1070  pm2 delete besindegerim
+ 1071  nano ecosystem.config.cjs
+ 1072  pm2 start ecosystem.config.cjs
+ 1073  pm2 logs besindegerim --lines 50
+ 1074  history
+ 1075  pm2 start ecosystem.config.cjs --env production
+ 1076  pm2 logs besindegerim --lines 50
+ 1077  pm2 delete besindegerim
+ 1078  pm2 start ecosystem.config.cjs --env production
+ 1079  pm2 logs besindegerim --lines 50
+ 1080  pm2 delete besindegerim
+ 1081  pm2 env 28
+ 1082  pm2 show besindegerim
+ 1083  pm2 start ecosystem.config.cjs
+ 1084  pm2 env 28
+ 1085  pm2 show besindegerim
+ 1086  npm list dotenv
+ 1087  npm install dotenv
+ 1088  nano ecosystem.config.cjs
+ 1089  pm2 list
+ 1090  pm2 delete besindegerim
+ 1091  pm2 start ecosystem.config.cjs
+ 1092  pm2 logs besindegerim
+ 1093  pm2 delete besindegerim
+ 1094  nano ecosystem.config.cjs
+ 1095  npm run build
+ 1096  pm2 start ecosystem.config.cjs
+ 1097  pm2 logs besindegerim --lines 30
+ 1098  pm2 delete besindegerim
+ 1099  pm2 start ecosystem.config.cjs --env production
+ 1100  pm2 logs besindegerim --lines 30
+ 1101  pm2 delete besindegerim
+ 1102  git pull origin main
+ 1103  npm run build
+ 1104  pm2 start ecosystem.config.cjs
+ 1105  pm2 logs besindegerim --lines 20
+ 1106  ls -la /var/www/besindegerim/.env
+ 1107  cat /var/www/besindegerim/.env | grep DATABASE_URL
+ 1108  pm2 show besindegerim | grep cwd
+ 1109  cd /var/www/besindegerim
+ 1110  node -e "require('dotenv').config(); console.log('DATABASE_URL:', process.env.DATABASE_URL)"
+ 1111  nano ecosystem.config.cjs
+ 1112  pm2 list
+ 1113  pm2 delete besindegerim
+ 1114  pm2 start ecosystem.config.cjs
+ 1115  pm2 logs besindegerim --lines 30
+ 1116  history
+ 1117  nano ecosystem.config.cjs
+ 1118  pm2 delete besindegerim
+ 1119  pm2 start ecosystem.config.cjs
+ 1120  pm2 logs besindegerim --lines 30
+ 1121  node --version
+ 1122  nano ecosystem.config.cjs
+ 1123  pm2 delete besindegerim
+ 1124  m2 start ecosystem.config.cjs
+ 1125  pm2 start ecosystem.config.cjs
+ 1126  npm run build
+ 1127  pm2 start ecosystem.config.cjs
+ 1128  pm2 status
+ 1129  pm2 logs besindegerim --lines 50
+ 1130  rm start.cjs
+ 1131  nano ecosystem.config.cjs
+ 1132  pm2 delete besindegerim
+ 1133  pm2 start ecosystem.config.cjs
+ 1134  pm2 delete besindegerim
+ 1135  cd /var/www/besindegerim
+ 1136  node --env-file=.env dist/index.js
+ 1137  pm2 list
+ 1138  pm2 logs besindegerim --lines 50 --err
+ 1139  cd /var/www/besindegerim
+ 1140  node --env-file=.env dist/index.js
+ 1141  pm2 start ecosystem.config.cjs
+ 1142  pm2 delete besindegerim
+ 1143  rm -rf ~/.pm2/logs/*
+ 1144  rm -rf ~/.pm2/pids/*
+ 1145  pm2 start ecosystem.config.cjs
+ 1146  pm2 delete besindegerim
+ 1147  nano ecosystem.config.cjs
+ 1148  pm2 start ecosystem.config.cjs
+ 1149  pm2 list
+ 1150  pm2 logs besindegerim --lines 20
+ 1151  pm2 delete besindegerim
+ 1152  nano ecosystem.config.cjs
+ 1153  pm2 start ecosystem.config.cjs
+ 1154  pm2 delete besindegerim 2>/dev/null || true
+ 1155  rm -f ecosystem.config.cjs start.cjs
+ 1156  cat > ecosystem.config.cjs << 'EOF'
+ 1157  module.exports = {
+ 1158    apps: [{
+ 1159      name: 'besindegerim',
+ 1160      script: 'dist/index.js',
+ 1161      cwd: '/var/www/besindegerim',
+ 1162      instances: 1,
+ 1163      exec_mode: 'fork',
+ 1164      autorestart: true,
+ 1165      watch: false,
+ 1166      max_memory_restart: '1G',
+ 1167      env: {
+ 1168        NODE_ENV: 'production',
+ 1169        PORT: '1453',
+ 1170        DATABASE_URL: 'postgresql://besindegerim_admin:BsnDgr2025PgSecure987@localhost:5432/besindegerim_db',
+ 1171        PGHOST: 'localhost',
+ 1172        PGPORT: '5432',
+ 1173        PGDATABASE: 'besindegerim_db',
+ 1174        PGUSER: 'besindegerim_admin',
+ 1175        PGPASSWORD: 'BsnDgr2025PgSecure987',
+ 1176        SESSION_SECRET: 'Session2025SecretKeyBsnDgr',
+ 1177        BASE_URL: 'https://besindegerim.com'
+ 1178      },
+ 1179      error_file: './logs/err.log',
+ 1180      out_file: './logs/out.log',
+ 1181      log_date_format: 'YYYY-MM-DD HH:mm:ss Z',
+ 1182      merge_logs: true
+ 1183    }]
+ 1184  };
+ 1185  EOF
+ 1186  rm -rf logs/*
+ 1187  mkdir -p logs
+ 1188  pm2 start ecosystem.config.cjs
+ 1189  sleep 3
+ 1190  pm2 list
+ 1191  curl http://localhost:1453
+ 1192  pm2 logs besindegerim --lines 20
+ 1193  pm2 save
+ 1194  pm2 startup
+ 1195  sudo nano /etc/nginx/sites-available/besindegerim.com.conf
+ 1196  sudo ln -s /etc/nginx/sites-available/besindegerim.com.conf /etc/nginx/sites-enabled/
+ 1197  sudo nginx -t
+ 1198  sudo systemctl restart nginx
+ 1199  sudo systemctl enable nginx
+ 1200  sudo certbot --nginx -d besindegerim.com -d www.besindegerim.com
+ 1201  sudo systemctl restart nginx
+ 1202  sudo certbot renew --dry-run
+ 1203  pm2 list
+ 1204  pm2 logs besindegerim --lines 50
+ 1205  sudo tail -50 /var/log/nginx/error.log
+ 1206  sudo tail -20 /var/log/nginx/access.log
+ 1207  curl http://localhost:1453
+ 1208  curl -I http://localhost:1453
+ 1209  curl http://localhost:1453 | head -20
+ 1210  ls -la /var/www/besindegerim/dist/public/
+ 1211  sudo nano /etc/nginx/sites-available/besindegerim.com.conf
+ 1212  pm2 restart besindegerim
+ 1213  pm2 logs besindegerim --lines 50
+ 1214  git pull origin main
+ 1215  npm run build
+ 1216  pm2 restart besindegerim
+ 1217  sleep 2
+ 1218  curl http://localhost:1453
+ 1219  pm2 logs besindegerim --lines 30
+ 1220  curl -v http://localhost:1453 2>&1 | grep -i "server error"
+ 1221  pm2 logs besindegerim | grep "serving on port"
+ 1222  pm2 show besindegerim | grep -A 5 "env:"
+ 1223  pm2 list
+ 1224  pm2 show besindegerim | grep -A 5 "env:"
+ 1225  cat ecosystem.config.cjs | grep NODE_ENV
+ 1226  pm2 delete besindegerim
+ 1227  git pull origin main
+ 1228  git stash .
+ 1229  git pull origin main
+ 1230  git stash
+ 1231  git pull origin main
+ 1232  npm run build
+ 1233  pm2 start ecosystem.config.cjs
+ 1234  curl http://localhost:1453 | head -20
+ 1235  pm2 logs besindegerim --lines 30
+ 1236  pm2 logs besindegerim --lines 50 --err
+ 1237  nano ecosystem.config.cjs
+ 1238  cat .env | grep FOODDATA_API_KEY
+ 1239  pm2 delete besindegerim
+ 1240  pm2 start ecosystem.config.cjs
+ 1241  pm2 delete besindegerim
+ 1242  nano ecosystem.config.cjs
+ 1243  cat .env | grep FOODDATA_API_KEY
+ 1244  nano ecosystem.config.cjs
+ 1245  nano .env
+ 1246  cat .env | grep FOODDATA_API_KEY
+ 1247  pm2 start ecosystem.config.cjs
+ 1248  cat ecosystem.config.cjs
+ 1249  cat > ecosystem.config.cjs << 'EOF'
+ 1250  module.exports = {
+ 1251    apps: [{
+ 1252      name: 'besindegerim',
+ 1253      script: 'dist/index.js',
+ 1254      cwd: '/var/www/besindegerim',
+ 1255      instances: 1,
+ 1256      exec_mode: 'fork',
+ 1257      autorestart: true,
+ 1258      watch: false,
+ 1259      max_memory_restart: '1G',
+ 1260      env: {
+ 1261        NODE_ENV: 'production',
+ 1262        PORT: '1453',
+ 1263        DATABASE_URL: 'postgresql://besindegerim_admin:BsnDgr2025PgSecure987@localhost:5432/besindegerim_db',
+ 1264        PGHOST: 'localhost',
+ 1265        PGPORT: '5432',
+ 1266        PGDATABASE: 'besindegerim_db',
+ 1267        PGUSER: 'besindegerim_admin',
+ 1268        PGPASSWORD: 'BsnDgr2025PgSecure987',
+ 1269        SESSION_SECRET: 'Session2025SecretKeyBsnDgr',
+ 1270        BASE_URL: 'https://besindegerim.com',
+ 1271        FOODDATA_API_KEY: 'ROHYH9BNvyzUsuoPEfL3LP4HyivEhxyKutsJGAxS'
+ 1272      },
+ 1273      error_file: './logs/err.log',
+ 1274      out_file: './logs/out.log',
+ 1275      log_date_format: 'YYYY-MM-DD HH:mm:ss Z',
+ 1276      merge_logs: true
+ 1277    }]
+ 1278  };
+ 1279  EOF
+ 1280  pm2 start ecosystem.config.cjs
+ 1281  curl http://localhost:1453 | head -20
+ 1282  pm2 list
+ 1283  pm2 logs besindegerim --lines 20 --out
+ 1284  curl http://localhost:1453
+ 1285  pm2 logs besindegerim --lines 50 --err | grep -A 10 "Error\|ERROR"
+ 1286  git pull origin main
+ 1287  npm run build
+ 1288  pm2 restart besindegerim
+ 1289  pm2 logs besindegerim --lines 20
+ 1290  cat dist/public/index.html | head -30
+ 1291  ls -la dist/public/
+ 1292  curl -v http://localhost:1453 2>&1 | head -100
+ 1293  pm2 logs besindegerim --err --lines 100 | grep -A 20 "Error\|Cannot find\|MODULE_NOT_FOUND\|ENOENT"
+ 1294  tail -100 /var/www/besindegerim/logs/err.log | grep -v "altnames" | grep -v "SSL\|TLS\|Certificate" | tail -50
+ 1295  nano ecosystem.config.cjs
+ 1296  pm2 restart besindegerim
+ 1297  pm2 restart besindegerim --update-env
+ 1298  tail -100 /var/www/besindegerim/logs/err.log | grep -v "altnames" | grep -v "SSL\|TLS\|Certificate" | tail -50
+ 1299  cd /var/www/besindegerim
+ 1300  NODE_ENV=production PORT=1453 node dist/index.js
+ 1301  pm2 stop besindegerim
+ 1302  cd /var/www/besindegerim
+ 1303  NODE_ENV=production PORT=1453 PGSSLMODE=disable node dist/index.js
+ 1304  cat /var/www/besindegerim/ecosystem.config.cjs | grep -A 20 "env:"
+ 1305  nano /var/www/besindegerim/ecosystem.config.cjs
+ 1306  pm2 delete besindegerim
+ 1307  pm2 start ecosystem.config.cjs
+ 1308  pm2 start yosun-restaurant
+ 1309  pm2 list
+ 1310  pm2 logs besindegerim --lines 20
+ 1311  pm2 logs besindegerim --out --lines 30
+ 1312  sudo nano /etc/postgresql/*/main/postgresql.conf
+ 1313  sudo systemctl restart postgresql
+ 1314  pm2 restart besindegerim
+ 1315  sleep 2
+ 1316  curl http://localhost:1453 | head -50
+ 1317  curl http://localhost:1453 2>&1
+ 1318  pm2 flush besindegerim
+ 1319  pm2 logs besindegerim --lines 0 &
+ 1320  curl -v http://localhost:1453
+ 1321  git pull origin main
+ 1322  cd /var
+ 1323  cd www
+ 1324  ls
+ 1325  cd besindegerim
+ 1326  npm install pg
+ 1327  npm run build
+ 1328  pm2 restart besindegerim
+ 1329  curl http://localhost:1453 | head -50
+ 1330  pm2 logs besindegerim --lines 50 | grep "GET"
+ 1331  tail -50 /var/log/nginx/besindegerim.com-access.log | grep -E "logo|favicon|attached_assets"
+ 1332  git pull origin main
+ 1333  git stash
+ 1334  git pull origin main
+ 1335  psql -h localhost -U besindegerim_admin -d besindegerim_db < db/besindegerim-full.sql
+ 1336  history
+ 1337  nano .env
+ 1338  psql -h localhost -U besindegerim_admin -d besindegerim_db < db/besindegerim-full.sql
+ 1339  pm2 restart besindegerim
+ 1340  curl http://localhost:1453 | grep -i "266"
+ 1341  pm2 logs besindegerim
+ 1342  pm2 restart besindegerim
+ 1343  git pull origin main
+ 1344  npm run build
+ 1345  pm2 restart besindegerim
+ 1346  git pull origin main
+ 1347  npm run build
+ 1348  pm2 restart besindegerim
+ 1349  ls -la dist/public/index.html
+ 1350  ls -la dist/public/assets/
+ 1351  echo "DATABASE_URL=$DATABASE_URL"
+ 1352  echo "NODE_ENV=$NODE_ENV"
+ 1353  echo "BASE_URL=$BASE_URL"
+ 1354  cat .env
+ 1355  nano env
+ 1356  nano .env
+ 1357  echo "DATABASE_URL=$DATABASE_URL"
+ 1358  systemctl status postgresql
+ 1359  psql -h localhost -U besindegerim_admin -d besindegerim_db -c "SELECT COUNT(*) FROM foods;"
+ 1360  pm2 logs besindegerim --lines 100
+ 1361  pm2 restart besindegerim --update-env
+ 1362  pm2 restart besindegerim
+ 1363  echo "DATABASE_URL=$DATABASE_URL"
+ 1364  cat > ecosystem.config.js << 'EOF'
+ 1365  module.exports = {
+ 1366    apps: [{
+ 1367      name: 'besindegerim',
+ 1368      script: 'dist/index.js',
+ 1369      instances: 1,
+ 1370      exec_mode: 'cluster',
+ 1371      env: {
+ 1372        NODE_ENV: 'production',
+ 1373        PORT: 1453
+ 1374      },
+ 1375      env_file: '.env'
+ 1376    }]
+ 1377  };
+ 1378  EOF
+ 1379  pm2 delete besindegerim
+ 1380  pm2 start ecosystem.config.js
+ 1381  pm2 delete besindegerim
+ 1382  pm2 list
+ 1383  rm -rf besindegerim
+ 1384  ls
+ 1385  cd www
+ 1386  ls
+ 1387  cd /var
+ 1388  cd www
+ 1389  ls
+ 1390  rm -rf besindegerim
+ 1391  mkdir besindegerim
+ 1392  cd besindegerim
+ 1393  git clone https://github.com/j1vetr/besindegerim.git .
+ 1394  cat > .env << 'EOF'
+ 1395  NODE_ENV=production
+ 1396  PORT=1453
+ 1397  # PostgreSQL Database
+ 1398  DATABASE_URL=postgresql://besindegerim_admin:BsnDgr2025PgSecure987@localhost:5432/besindegerim_db
+ 1399  PGHOST=localhost
+ 1400  PGPORT=5432
+ 1401  PGDATABASE=besindegerim_db
+ 1402  PGUSER=besindegerim_admin
+ 1403  PGPASSWORD=BsnDgr2025PgSecure987
+ 1404  # USDA API Key
+ 1405  FOODDATA_API_KEY=ROHYH9BNvyzUsuoPEfL3LP4HyivEhxyKutsJGAxS
+ 1406  # Session Secret
+ 1407  SESSION_SECRET=Session2025SecretKeyBsnDgr
+ 1408  # Base URL
+ 1409  BASE_URL=https://besindegerim.com
+ 1410  EOF
+ 1411  chmod 600 .env
+ 1412  cat .env
+ 1413  cat > ecosystem.config.js << 'EOF'
+ 1414  module.exports = {
+ 1415    apps: [{
+ 1416      name: 'besindegerim',
+ 1417      script: 'dist/index.js',
+ 1418      instances: 1,
+ 1419      exec_mode: 'cluster',
+ 1420      env: {
+ 1421        NODE_ENV: 'production',
+ 1422        PORT: 1453,
+ 1423        DATABASE_URL: 'postgresql://besindegerim_admin:BsnDgr2025PgSecure987@localhost:5432/besindegerim_db',
+ 1424        FOODDATA_API_KEY: 'ROHYH9BNvyzUsuoPEfL3LP4HyivEhxyKutsJGAxS',
+ 1425        BASE_URL: 'https://besindegerim.com',
+ 1426        SESSION_SECRET: 'Session2025SecretKeyBsnDgr',
+ 1427        PGHOST: 'localhost',
+ 1428        PGPORT: '5432',
+ 1429        PGDATABASE: 'besindegerim_db',
+ 1430        PGUSER: 'besindegerim_admin',
+ 1431        PGPASSWORD: 'BsnDgr2025PgSecure987'
+ 1432      },
+ 1433      error_file: './logs/err.log',
+ 1434      out_file: './logs/out.log',
+ 1435      log_date_format: 'YYYY-MM-DD HH:mm:ss Z'
+ 1436    }]
+ 1437  };
+ 1438  EOF
+ 1439  cat ecosystem.config.js
+ 1440  mkdir -p logs
+ 1441  ls -la logs/
+ 1442  npm install
+ 1443  echo "✅ Dependencies yüklendi"
+ 1444  ls -la node_modules/pg
+ 1445  ls -la node_modules/drizzle-orm
+ 1446  npm run build
+ 1447  ls -la dist/
+ 1448  ls -la dist/index.js
+ 1449  ls -la dist/public/index.html
+ 1450  psql -h localhost -U besindegerim_admin -d besindegerim_db -c "SELECT COUNT(*) FROM foods;"
+ 1451  NODE_ENV=production DATABASE_URL=postgresql://besindegerim_admin:BsnDgr2025PgSecure987@localhost:5432/besindegerim_db BASE_URL=https://besindegerim.com PORT=1453 node dist/index.js
+ 1452  npm run build
+ 1453  NODE_ENV=production DATABASE_URL=postgresql://besindegerim_admin:BsnDgr2025PgSecure987@localhost:5432/besindegerim_db BASE_URL=https://besindegerim.com PORT=1453 node dist/index.js
+ 1454  NODE_ENV=production DATABASE_URL=postgresql://besindegerim_admin:BsnDgr2025PgSecure987@localhost:5432/besindegerim_db FOODDATA_API_KEY=ROHYH9BNvyzUsuoPEfL3LP4HyivEhxyKutsJGAxS BASE_URL=https://besindegerim.com SESSION_SECRET=Session2025SecretKeyBsnDgr PORT=1453 node dist/index.js
+ 1455  pm2 start ecosystem.config.js
+ 1456  mv ecosystem.config.js ecosystem.config.cjs
+ 1457  pm2 start ecosystem.config.cjs
+ 1458  pm2 save
+ 1459  pm2 startup
+ 1460  pm2 list
+ 1461  find . -name "*logo*" -o -name "*.png" | grep -v node_modules | head -20
+ 1462  ls -la dist/public/
+ 1463  ls -la dist/public/favicon.png
+ 1464  pm2 logs besindegerim --lines 20
+ 1465  grep -n "logo" server/render.ts | head -10
+ 1466  grep -A5 -B5 "besindegerim.com" server/render.ts | head -20
+ 1467  nano /etc/nginx/sites-available/besindegerim.com.conf
+ 1468  nginx -t
+ 1469  systemctl reload nginx
+ 1470  curl https://besindegerim.com/sitemap.xml
+ 1471  grep -n "sitemap" server/ssr.ts
+ 1472  nginx -t
+ 1473  systemctl reload nginx
+ 1474  curl https://besindegerim.com/sitemap.xml | head -20
+ 1475  curl https://besindegerim.com/robots.txt
+ 1476  pm2 flush besindegerim
+ 1477  curl https://besindegerim.com/sitemap.xml
+ 1478  pm2 logs besindegerim --lines 50 | grep -E "sitemap|robots|GET"
+ 1479  grep -A10 "Production Mode" server/index.ts
+ 1480  grep -A5 "registerSSRRoutes" server/index.ts
+ 1481  systemctl restart nginx
+ 1482  curl http://localhost:1453/sitemap.xml | head -20
+ 1483  curl http://localhost:1453/robots.txt
+ 1484  pm2 logs besindegerim --err --lines 100
+ 1485  tail -100 logs/err-77.log
+ 1486  pm2 restart besindegerim
+ 1487  pm2 logs besindegerim --lines 30
+ 1488  ls -la dist/public/index.html
+ 1489  grep -n "templatePath" server/ssr.ts | head -5
+ 1490  head -30 server/ssr.ts | grep -A10 "registerSSRRoutes"
+ 1491  git pull origin main
+ 1492  npm run build
+ 1493  pm2 restart besindegerim
+ 1494  curl -I https://besindegerim.com/sitemap.xml
+ 1495  curl -I https://besindegerim.com/robots.txt
+ 1496  pm2 logs besindegerim --lines 20 --nostream
+ 1497  pm2 describe besindegerim | grep -A 5 "env:"
+ 1498  grep -n "registerSSRRoutes" dist/index.js | head -3
+ 1499  curl -I http://localhost:1453/sitemap.xml
+ 1500  curl -I http://localhost:1453/robots.txt
+ 1501  cat ecosystem.config.cjs
+ 1502  pm2 env 77
+ 1503  cat ecosystem.config.cjs
+ 1504  pm2 env 77
+ 1505  sed -n '1468,1475p' dist/index.js
+ 1506  sed -n '1468,1485p' dist/index.js
+ 1507  grep -A 10 -B 5 "registerSSRRoutes(app2)" dist/index.js | head -20
+ 1508  rm -rf dist
+ 1509  npm run build
+ 1510  grep -A 15 "registerSSRRoutes(app2)" dist/index.js | head -20
+ 1511  pm2 restart besindegerim
+ 1512  curl -I http://localhost:1453/sitemap.xml
+ 1513  grep -B 5 -A 25 'NODE_ENV === "production"' dist/index.js
+ 1514  grep -n "express.static" dist/index.js
+ 1515  sed -n '103,119p' server/index.ts
+ 1516  head -10 server/index.ts
+ 1517  rm dist/index.js
+ 1518  npx esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist --log-level=info
+ 1519  grep -B 5 -A 30 'NODE_ENV === "production"' dist/index.js
+ 1520  sed -n '60,131p' server/index.ts
+ 1521  grep -n "async function setupApp" server/index.ts
+ 1522  git pull origin main
+ 1523  rm -rf dist
+ 1524  npm run build
+ 1525  pm2 restart besindegerim
+ 1526  curl -I http://localhost:1453/sitemap.xml
+ 1527  curl http://localhost:1453/robots.txt
+ 1528  grep -B 5 -A 30 'NODE_ENV === "production"' dist/index.js
+ 1529  sed -n '850,880p' dist/index.js
+ 1530  grep -n "express.static" dist/index.js
+ 1531  git pull origin main
+ 1532  npm run build
+ 1533  pm2 restart besindegerim
+ 1534  cd /var
+ 1535  cd www
+ 1536  cd besindegerim
+ 1537  git pull origin main
+ 1538  npm run build
+ 1539  pm2 restart besindegerim
+ 1540  git pull origin main
+ 1541  npm run build
+ 1542  pm2 restart besindegerim
+ 1543  git pull origin main
+ 1544  npm run build
+ 1545  pm2 restart besindegerim
+ 1546  git pull origin main
+ 1547  cd /var
+ 1548  cd www
+ 1549  cd besindegeri
+ 1550  cd besindegerim
+ 1551  git pull origin main
+ 1552  npm run build
+ 1553  pm2 restart besindegerim
+ 1554  git pull origin main
+ 1555  npm run build
+ 1556  pm2 restart besindegerim
+ 1557  python3 visit.py urls.txt
+ 1558  cd www
+ 1559  cd var
+ 1560  cd /var
+ 1561  cd www
+ 1562  ls
+ 1563  cd nasiloldu
+ 1564  ls
+ 1565  npm run build
+ 1566  pm2 restart nasiloldu
+ 1567  apt install imapsync -y
+ 1568  sudo install imapsync
+ 1569  sudo apt install imapsync
+ 1570  sudo apt install git -y
+ 1571  git clone https://github.com/imapsync/imapsync.git
+ 1572  cd imapsync
+ 1573  sudo apt install make perl libauthen-ntlm-perl libclass-load-perl libcrypt-ssleay-perl libdata-uniqid-perl libdigest-hmac-perl libdist-checkconflicts-perl libencode-imaputf7-perl libfile-copy-recursive-perl libfile-tail-perl libio-compress-perl libio-socket-inet6-perl libio-socket-ssl-perl libmail-imapclient-perl libmodule-scandeps-perl libnet-ssleay-perl libpar-packer-perl libreadonly-perl libsys-meminfo-perl libterm-readkey-perl libtest-pod-perl liburi-perl libtest-simple-perl -y
+ 1574  make install
+ 1575  imapsync --version
+ 1576  sudo apt install git make perl -y
+ 1577  sudo apt install libauthen-ntlm-perl libclass-load-perl libcrypt-ssleay-perl libdata-uniqid-perl libdigest-hmac-perl libdist-checkconflicts-perl libencode-imaputf7-perl libfile-copy-recursive-perl libfile-tail-perl libio-compress-perl libio-socket-inet6-perl libio-socket-ssl-perl libmail-imapclient-perl libmodule-scandeps-perl libnet-ssleay-perl libpar-packer-perl libreadonly-perl libsys-meminfo-perl libterm-readkey-perl libtest-pod-perl liburi-perl libtest-simple-perl -y
+ 1578  sudo make install
+ 1579  imapsync --version
+ 1580  sudo apt update
+ 1581  sudo apt install -y   cpanminus   libcgi-pm-perl   libcrypt-openssl-rsa-perl   libio-tee-perl   libjson-webtoken-perl   libhtml-parser-perl   libwww-perl   libregexp-common-perl   libtest-fatal-perl   libtest-mock-guard-perl   libtest-mockobject-perl   libtest-requires-perl   libtest-deep-perl   libunicode-string-perl
+ 1582  sudo make install
+ 1583  imapsync --version
+ 1584  imapsync   --host1 imax.yandex.com --user1 ege@emeraldmansion.com --password1 'bu#oWrlfrisuwerl2lvi'   --host2 mega.promail.com.tr --user2 ege@emeraldmansion.com --password2 'Deneme1234@@'   --ssl1 --ssl2 --port1 993 --port2 993   --automap --useuid --syncinternaldates --addheader   --nofoldersizes --skipsize --noauthmd5   --exclude '(?i)spam|trash|junk'   --timeout 120 --reconnectretry1 3 --reconnectretry2 3 --allowsizemismatch
+ 1585  imapsync   --host1 imap.yandex.com --user1 ege@emeraldmansion.com --password1 'bu#oWrlfrisuwerl2lvi'   --host2 mega.promail.com.tr --user2 ege@emeraldmansion.com --password2 'Deneme1234@@'   --ssl1 --ssl2 --port1 993 --port2 993   --automap --useuid --syncinternaldates --addheader   --nofoldersizes --skipsize --noauthmd5   --exclude '(?i)spam|trash|junk'   --timeout 120 --reconnectretry1 3 --reconnectretry2 3 --allowsizemismatch
+ 1586  imapsync   --host1 imap.yandex.com --user1 info@emeraldmansion.com --password1 'D$4rUswac_5eDL3_Eblt'   --host2 mega.promail.com.tr --user2 info@emeraldmansion.com --password2 'Deneme1234@@'   --ssl1 --ssl2 --port1 993 --port2 993   --automap --useuid --syncinternaldates --addheader   --nofoldersizes --skipsize --noauthmd5   --exclude '(?i)spam|trash|junk'   --timeout 120 --reconnectretry1 3 --reconnectretry2 3 --allowsizemismatch
+ 1587  imapsync   --host1 imap.yandex.com --user1 ege@emeraldmansion.com --password1 'bu#oWrlfrisuwerl2lvi'   --host2 mega.promail.com.tr --user2 ege@emeraldmansion.com --password2 'Deneme1234@@'   --ssl1 --ssl2 --port1 993 --port2 993   --automap --useuid --syncinternaldates --addheader   --nofoldersizes --skipsize --noauthmd5   --exclude '(?i)spam|trash|junk'   --timeout 120 --reconnectretry1 3 --reconnectretry2 3 --allowsizemismatch
+ 1588  cd /var/www
+ 1589  sudo mkdir -p escapetable && sudo chown -R $USER:$USER escapetable
+ 1590  git clone https://github.com/j1vetr/EscapeTable.git escapetable
+ 1591  cd escapetable
+ 1592  ls
+ 1593  npm install --production=false
+ 1594  npm run build
+ 1595  mkdir -p logs
+ 1596  nano .env
+ 1597  node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+ 1598  cat > .env << 'EOF'
+ 1599  NODE_ENV=production
+ 1600  PORT=9344
+ 1601  # PostgreSQL Database
+ 1602  DATABASE_URL=postgresql://escapetable_user:ToovEscp1453@localhost:5432/escapetable
+ 1603  # Session Secret
+ 1604  SESSION_SECRET=d7c3a26095022fb87d13bbdfcce73a03b2f8b18e0869afcc68b714ae9fdac036
+ 1605  # Domain
+ 1606  REPL_SLUG=escapetable
+ 1607  REPLIT_DOMAINS=escape.toov.com.tr
+ 1608  EOF
+ 1609  cat .env
+ 1610  sudo -u postgres psql << 'EOF'
+ 1611  CREATE DATABASE escapetable;
+ 1612  CREATE USER escapetable_user WITH PASSWORD 'ToovEscp1453';
+ 1613  GRANT ALL PRIVILEGES ON DATABASE escapetable TO escapetable_user;
+ 1614  ALTER DATABASE escapetable OWNER TO escapetable_user;
+ 1615  \q
+ 1616  EOF
+ 1617  PGPASSWORD=ToovEscp1453 psql -U escapetable_user -h localhost -d escapetable -c "SELECT version();"
+ 1618  npm install --production=false
+ 1619  npm run build
+ 1620  npm run db:push
+ 1621  pm2 start ecosystem.config.cjs
+ 1622  pm2 status
+ 1623  pm2 logs escapetable --lines 20
+ 1624  pm2 delete escapetable
+ 1625  pm2 start ecosystem.config.cjs --env production --update-env
+ 1626  pm2 status
+ 1627  pm2 logs escapetable --lines 50
+ 1628  cat > ecosystem.config.cjs << 'EOF'
+ 1629  module.exports = {
+ 1630    apps: [{
+ 1631      name: 'escapetable',
+ 1632      script: './dist/index.js',
+ 1633      instances: 1,
+ 1634      exec_mode: 'cluster',
+ 1635      watch: false,
+ 1636      max_memory_restart: '500M',
+ 1637      env: {
+ 1638        NODE_ENV: 'production',
+ 1639        PORT: 9344,
+ 1640        DATABASE_URL: 'postgresql://escapetable_user:ToovEscp1453@localhost:5432/escapetable',
+ 1641        SESSION_SECRET: 'd7c3a26095022fb87d13bbdfcce73a03b2f8b18e0869afcc68b714ae9fdac036',
+ 1642        REPL_SLUG: 'escapetable',
+ 1643        REPLIT_DOMAINS: 'escape.toov.com.tr'
+ 1644      },
+ 1645      error_file: './logs/pm2-error.log',
+ 1646      out_file: './logs/pm2-out.log',
+ 1647      log_date_format: 'YYYY-MM-DD HH:mm:ss Z',
+ 1648      merge_logs: true,
+ 1649      autorestart: true,
+ 1650      max_restarts: 10,
+ 1651      min_uptime: '10s'
+ 1652    }]
+ 1653  };
+ 1654  EOF
+ 1655  pm2 delete escapetable
+ 1656  pm2 start ecosystem.config.cjs
+ 1657  pm2 save
+ 1658  pm2 logs escapetable
+ 1659  pm2 delete escapetable
+ 1660  cat > ecosystem.config.cjs << 'EOF'
+ 1661  module.exports = {
+ 1662    apps: [{
+ 1663      name: 'escapetable',
+ 1664      script: './dist/index.js',
+ 1665      instances: 1,
+ 1666      exec_mode: 'cluster',
+ 1667      watch: false,
+ 1668      max_memory_restart: '500M',
+ 1669      env_production: {
+ 1670        NODE_ENV: 'production',
+ 1671        PORT: '9344',
+ 1672        DATABASE_URL: 'postgresql://escapetable_user:ToovEscp1453@localhost:5432/escapetable',
+ 1673        SESSION_SECRET: 'd7c3a26095022fb87d13bbdfcce73a03b2f8b18e0869afcc68b714ae9fdac036',
+ 1674        REPL_SLUG: 'escapetable',
+ 1675        REPLIT_DOMAINS: 'escape.toov.com.tr'
+ 1676      },
+ 1677      error_file: './logs/pm2-error.log',
+ 1678      out_file: './logs/pm2-out.log',
+ 1679      log_date_format: 'YYYY-MM-DD HH:mm:ss Z',
+ 1680      merge_logs: true,
+ 1681      autorestart: true,
+ 1682      max_restarts: 10,
+ 1683      min_uptime: '10s'
+ 1684    }]
+ 1685  };
+ 1686  EOF
+ 1687  pm2 start ecosystem.config.cjs --env production
+ 1688  pm2 status
+ 1689  pm2 logs escapetable --lines 50
+ 1690  export NODE_ENV=production
+ 1691  export PORT=9344
+ 1692  export DATABASE_URL='postgresql://escapetable_user:ToovEscp1453@localhost:5432/escapetable'
+ 1693  export SESSION_SECRET='d7c3a26095022fb87d13bbdfcce73a03b2f8b18e0869afcc68b714ae9fdac036'
+ 1694  export REPL_SLUG='escapetable'
+ 1695  export REPLIT_DOMAINS='escape.toov.com.tr'
+ 1696  pm2 start dist/index.js --name escapetable --env production
+ 1697  pm2 delete escapetable
+ 1698  pm2 start dist/index.js --name escapetable --env production
+ 1699  pm2 save
+ 1700  pm2 status
+ 1701  pm2 escapetable logs
+ 1702  pm2 escapetable log
+ 1703  pm2 logs escapetable
+ 1704  sudo cp nginx-config-example.conf /etc/nginx/sites-available/escapetable.conf
+ 1705  sudo ln -s /etc/nginx/sites-available/escapetable.conf /etc/nginx/sites-enabled/escapetable.conf
+ 1706  sudo nginx -t
+ 1707  sudo systemctl reload nginx
+ 1708  sudo systemctl status nginx
+ 1709  sudo certbot --nginx -d escape.toov.com.tr -d www.escape.toov.com.tr
+ 1710  sudo certbot certificates
+ 1711  pm2 logs escapetable
+ 1712  nano .env
+ 1713  cat > ecosystem.config.cjs << 'EOF'
+ 1714  module.exports = {
+ 1715    apps: [{
+ 1716      name: 'escapetable',
+ 1717      script: './dist/index.js',
+ 1718      instances: 1,
+ 1719      exec_mode: 'cluster',
+ 1720      watch: false,
+ 1721      max_memory_restart: '500M',
+ 1722      env_production: {
+ 1723        NODE_ENV: 'production',
+ 1724        PORT: '9344',
+ 1725        DATABASE_URL: 'postgresql://escapetable_user:ToovEscp1453@localhost:5432/escapetable?sslmode=disable',
+ 1726        SESSION_SECRET: 'd7c3a26095022fb87d13bbdfcce73a03b2f8b18e0869afcc68b714ae9fdac036',
+ 1727        REPL_SLUG: 'escapetable',
+ 1728        REPLIT_DOMAINS: 'escape.toov.com.tr'
+ 1729      },
+ 1730      error_file: './logs/pm2-error.log',
+ 1731      out_file: './logs/pm2-out.log',
+ 1732      log_date_format: 'YYYY-MM-DD HH:mm:ss Z',
+ 1733      merge_logs: true,
+ 1734      autorestart: true,
+ 1735      max_restarts: 10,
+ 1736      min_uptime: '10s'
+ 1737    }]
+ 1738  };
+ 1739  EOF
+ 1740  pm2 restart escapetable
+ 1741  pm2 logs escapetable --lines 50
+ 1742  curl http://localhost:9344/api/products
+ 1743  git pull origin main
+ 1744  npm install --production=false
+ 1745  npm run build
+ 1746  pm2 restart escapetable
+ 1747  pm2 logs escapetable --lines 50
+ 1748  pm2 delete escapetable
+ 1749  npm run build
+ 1750  pm2 start ecosystem.config.cjs --env production
+ 1751  pm2 logs escapetable
+ 1752  cd /var/www
+ 1753  ls
+ 1754  cd besindegerim
+ 1755  nano .env
+ 1756  cd /var
+ 1757  cd www
+ 1758  ls
+ 1759  cd escaptetable
+ 1760  cd escapetable
+ 1761  export NODE_ENV=production
+ 1762  export PORT=9344
+ 1763  export DATABASE_URL='postgresql://escapetable_user:ToovEscp1453@localhost:5432/escapetable'
+ 1764  export SESSION_SECRET='d7c3a26095022fb87d13bbdfcce73a03b2f8b18e0869afcc68b714ae9fdac036'
+ 1765  export REPL_SLUG='escapetable'
+ 1766  export REPLIT_DOMAINS='escape.toov.com.tr'
+ 1767  echo $DATABASE_URL
+ 1768  pm2 start dist/index.js   --name escapetable   --node-args="--max-old-space-size=500"   -i 1   --env production
+ 1769  pm2 delete escapetable
+ 1770  pm2 start dist/index.js   --name escapetable   --node-args="--max-old-space-size=500"   -i 1   --env production
+ 1771  pm2 status
+ 1772  pm2 logs escapetable --lines 50
+ 1773  PGPASSWORD=ToovEscp1453 psql -U escapetable_user -h localhost -d escapetable
+ 1774  git pull origin main
+ 1775  npm run build
+ 1776  pm2 restart escapetable
+ 1777  ls -lh ~/escapetable_backup.sql
+ 1778  ls
+ 1779  PGPASSWORD=ToovEscp1453 psql -U escapetable_user -h localhost -d escapetable -f /escapetable_backup.sql
+ 1780  PGPASSWORD=ToovEscp1453 psql -U escapetable_user -h localhost -d escapetable -f escapetable_backup.sql
+ 1781  PGPASSWORD=ToovEscp1453 psql -U escapetable_user -h localhost -d escapetable -c "SELECT COUNT(*) FROM products;"
+ 1782  pm2 status escaptetable
+ 1783  pm2 logs escapetable
+ 1784  curl http://localhost:9344/attached_assets/generated_images/Food_category_icon_ce060ebe.webp -I
+ 1785  chmod -R 755 attached_assets/
+ 1786  chown -R $USER:$USER attached_assets/
+ 1787  sudo nano /etc/nginx/sites-available/escapetable.conf
+ 1788  sudo nginx -t
+ 1789  sudo systemctl reload nginx
+ 1790  curl https://escape.toov.com.tr/attached_assets/generated_images/Food_category_icon_ce060ebe.webp -I
+ 1791  pm2 status
+ 1792  pm2 logs escapetable --lines 30
+ 1793  curl http://localhost:9344/attached_assets/generated_images/Food_category_icon_ce060ebe.webp -I
+ 1794  ls -la /var/www/escapetable/attached_assets/
+ 1795  ls -la /var/www/escapetable/attached_assets/generated_images/ | head -20
+ 1796  ls -lh /var/www/escapetable/attached_assets/generated_images/Food_category_icon_ce060ebe.webp
+ 1797  grep -n "attached_assets" /var/www/escapetable/dist/index.js
+ 1798  sudo grep -n "attached_assets" /etc/nginx/sites-available/escapetable
+ 1799  sudo grep -n "attached_assets" /etc/nginx/sites-available/escapetable.conf
+ 1800  sudo nginx -t
+ 1801  sudo systemctl reload nginx
+ 1802  sudo systemctl restart nginx
+ 1803  curl https://escape.toov.com.tr/attached_assets/generated_images/Food_category_icon_ce060ebe.webp -I
+ 1804  sudo tail -f /var/log/nginx/error.log
+ 1805  curl https://escape.toov.com.tr/attached_assets/generated_images/Food_category_icon_ce060ebe.webp -I
+ 1806  sudo nano /etc/nginx/sites-available/escapetable.conf
+ 1807  sudo nginx -t
+ 1808  sudo systemctl reload nginx
+ 1809  sudo systemctl restart nginx
+ 1810  sudo nano /etc/nginx/sites-available/escapetable.conf
+ 1811  sudo nginx -t
+ 1812  sudo systemctl restart nginx
+ 1813  sudo systemctl status nginx
+ 1814  curl https://escape.toov.com.tr/attached_assets/generated_images/Food_category_icon_ce060ebe.webp -I
+ 1815  sudo nginx -T 2>&1 | grep -A 10 "server_name escape.toov.com.tr"
+ 1816  sudo nginx -T 2>&1 | grep -n "attached_assets"
+ 1817  ls -la /etc/nginx/sites-enabled/ | grep escape
+ 1818  readlink -f /etc/nginx/sites-enabled/escapetable.conf
+ 1819  head -50 /etc/nginx/sites-available/escapetable.conf
+ 1820  sudo tail -f /var/log/nginx/error.log
+ 1821  curl https://escape.toov.com.tr/attached_assets/generated_images/Food_category_icon_ce060ebe.webp -I
+ 1822  sudo nano /etc/nginx/sites-available/escapetable.conf
+ 1823  sudo nginx -t
+ 1824  sudo systemctl restart nginx
+ 1825  curl https://escape.toov.com.tr/attached_assets/generated_images/Food_category_icon_ce060ebe.webp -I
+ 1826  cd /var
+ 1827  cd www
+ 1828  cd escapetable
+ 1829  ls
+ 1830  git pull origin main
+ 1831  npm install --production=false
+ 1832  npm run build
+ 1833  pm2 restart escapetable
+ 1834  ls
+ 1835  cd /var
+ 1836  ls
+ 1837  cd www
+ 1838  ls
+ 1839  git clone https://github.com/j1vetr/yardimseli.git
+ 1840  cd yardimseli
+ 1841  ls
+ 1842  npm install
+ 1843  npm run build
+ 1844  sudo nano /etc/nginx/sites-available/yardimseli.conf
+ 1845  sudo nano /etc/nginx/conf.d/yardimseli.conf
+ 1846  sudo nginx -t
+ 1847  sudo systemctl reload nginx
+ 1848  sudo certbot --nginx -d yardimselidernegi.com -d www.yardimselidernegi.com
+ 1849  sudo systemctl enable nginx
+ 1850  cd /var/www
+ 1851  mkdir lacivert
+ 1852  cd lacivert
+ 1853  git clone https://github.com/j1vetr/lacivert.git .
+ 1854  ls
+ 1855  npm install
+ 1856  npm run build
+ 1857  nano /etc/nginx/sites-available/lacivertteknoloji.com.conf
+ 1858  ln -s /etc/nginx/sites-available/lacivertteknoloji.com.conf /etc/nginx/sites-enabled/
+ 1859  nginx -t
+ 1860  systemctl enable nginx
+ 1861  certbot --nginx -d lacivertteknoloji.com -d www.lacivertteknoloji.com
+ 1862  git pull origin main
+ 1863  npm run build
+ 1864  git pull origin main
+ 1865  npm run build
+ 1866  git pull origin main
+ 1867  npm run build
+ 1868  cd /var
+ 1869  cd www
+ 1870  ls
+ 1871  cd escapetable
+ 1872  git pull origin main
+ 1873  npm run build
+ 1874  pm2 list
+ 1875  pm2 restart escapetable
+ 1876  pm2 list
+ 1877  git pull origin main
+ 1878  npm run build
+ 1879  pm2 restart escapetable
+ 1880  cd /var
+ 1881  cd www
+ 1882  ls
+ 1883  sudo mkdir -p /var/www/capital
+ 1884  git clone https://github.com/j1vetr/capital.git /var/www/capital
+ 1885  ls
+ 1886  cd capital
+ 1887  ls
+ 1888  npm install
+ 1889  npm run build
+ 1890  nano /etc/nginx/sites-available/capital.conf
+ 1891  sudo ln -s /etc/nginx/sites-available/capital.conf /etc/nginx/sites-enabled/
+ 1892  sudo rm /etc/nginx/sites-enabled/default
+ 1893  sudo nginx -t
+ 1894  sudo certbot --nginx -d capitallashing.com -d www.capitallashing.com
+ 1895  sudo nginx -t
+ 1896  sudo nginx reload
+ 1897  sudo systemctl restart nginx
+ 1898  sudo nginx enable
+ 1899  systemctl nginx enabled
+ 1900  systemctl nginx enable
+ 1901  git pull origin main
+ 1902  npm run build
+ 1903  git pull origin main
+ 1904  npm run build
+ 1905  cd /var
+ 1906  cd www
+ 1907  rm -rf /var/www/toov
+ 1908  mkdir toov
+ 1909  cd toov
+ 1910  python3 -m venv venv
+ 1911  source venv/bin/activate
+ 1912  pip install flask flask-sqlalchemy gunicorn psycopg2-binary email-validator werkzeug
+ 1913  /q
+ 1914  \q
+ 1915  quit
+ 1916  cd
+ 1917  ls
+ 1918  cd /var
+ 1919  cd www
+ 1920  ls
+ 1921  cd /etc
+ 1922  ls
+ 1923  cd systemd
+ 1924  cd system
+ 1925  ls
+ 1926  nano toov.service
+ 1927  rm toov.service
+ 1928  cd
+ 1929  cd /var
+ 1930  cd www
+ 1931  ls
+ 1932  rm toov
+ 1933  rm -rf toov
+ 1934  ls
+ 1935  cd /etc
+ 1936  cd nginx
+ 1937  ls
+ 1938  cd sites-available
+ 1939  ls
+ 1940  rm toov.conf
+ 1941  cd nginx
+ 1942  cd /etc/nginx
+ 1943  ls
+ 1944  cd sites enabled
+ 1945  cd sites-enabled
+ 1946  ls
+ 1947  rm toov.conf
+ 1948  cd
+ 1949  cd /var
+ 1950  cd www
+ 1951  cd toov
+ 1952  sudo -u postgres psql
+ 1953  cd /var/www/toov
+ 1954  source venv/bin/activate
+ 1955  export DATABASE_URL="postgresql://toovuser:Toov1453kmq@localhost:5432/toovdb"
+ 1956  export SESSION_SECRET="asnfafksaflk13kd2pox21kasdj1rk"
+ 1957  cd /var/www/toov
+ 1958  source venv/bin/activate
+ 1959  gunicorn --bind 0.0.0.0:5000 main:app
+ 1960  gunicorn --bind 0.0.0.0:5008 main:app
+ 1961  \q
+ 1962  deactivate
+ 1963  cd /etc
+ 1964  cd systemd
+ 1965  cd system
+ 1966  ls
+ 1967  nano toov.service
+ 1968  sudo systemctl daemon-reload
+ 1969  systemctl enable toov
+ 1970  systemctl start toov
+ 1971  systemctl status toov
+ 1972  history
+ 1973  cd /var
+ 1974  cd www
+ 1975  ls
+ 1976  mkdir toov
+ 1977  ls
+ 1978  cd toov
+ 1979  git clone https://github.com/j1vetr/toov.git
+ 1980  ls
+ 1981  rm -rf toov
+ 1982  ls
+ 1983  git clone https://github.com/j1vetr/toov.git .
+ 1984  ls
+ 1985  npm install
+ 1986  npm run build
+ 1987  sudo nano /etc/nginx/sites-available/toov1.conf
+ 1988  sudo nano /etc/nginx/sites-available/capital.conf
+ 1989  sudo nano /etc/nginx/sites-available/toov1.conf
+ 1990  sudo ln -s /etc/nginx/sites-available/toov1 /etc/nginx/sites-enabled/
+ 1991  sudo nginx -t
+ 1992  sudo systemctl restart nginx
+ 1993  history
+root@162-55-4-35:/var/www/toov# ^C
+root@162-55-4-35:/var/www/toov# sudo certbot --nginx -d toov.com.tr -d www.toov.com.tr
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Could not read file: /etc/nginx/sites-enabled/besindegerim.com.conf due to invalid character. Only UTF-8 encoding is supported.
+Certificate not yet due for renewal
+
+You have an existing certificate that has exactly the same domains or certificate name you requested and isn't close to expiry.
+(ref: /etc/letsencrypt/renewal/toov.com.tr.conf)
+
+What would you like to do?
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+1: Attempt to reinstall this existing certificate
+2: Renew & replace the certificate (may be subject to CA rate limits)
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Select the appropriate number [1-2] then [enter] (press 'c' to cancel): 1
+Deploying certificate
+Could not read file: /etc/nginx/sites-enabled/besindegerim.com.conf due to invalid character. Only UTF-8 encoding is supported.
+Could not install certificate
+
+NEXT STEPS:
+- The certificate was saved, but could not be installed (installer: nginx). After fixing the error shown below, try installing it again by running:
+  certbot install --cert-name toov.com.tr
+
+Could not automatically find a matching server block for toov.com.tr. Set the `server_name` directive to use the Nginx installer.
+Ask for help or search for solutions at https://community.letsencrypt.org. See the logfile /var/log/letsencrypt/letsencrypt.log or re-run Certbot with -v for more details.
+root@162-55-4-35:/var/www/toov# sudo certbot --nginx -d toov.com.tr -d www.toov.com.tr
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Could not read file: /etc/nginx/sites-enabled/besindegerim.com.conf due to invalid character. Only UTF-8 encoding is supported.
+Certificate not yet due for renewal
+
+You have an existing certificate that has exactly the same domains or certificate name you requested and isn't close to expiry.
+(ref: /etc/letsencrypt/renewal/toov.com.tr.conf)
+
+What would you like to do?
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+1: Attempt to reinstall this existing certificate
+2: Renew & replace the certificate (may be subject to CA rate limits)
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Select the appropriate number [1-2] then [enter] (press 'c' to cancel): 2
+Renewing an existing certificate for toov.com.tr and www.toov.com.tr
+Could not read file: /etc/nginx/sites-enabled/besindegerim.com.conf due to invalid character. Only UTF-8 encoding is supported.
+
+Successfully received certificate.
+Certificate is saved at: /etc/letsencrypt/live/toov.com.tr/fullchain.pem
+Key is saved at:         /etc/letsencrypt/live/toov.com.tr/privkey.pem
+This certificate expires on 2026-02-24.
+These files will be updated when the certificate renews.
+Certbot has set up a scheduled task to automatically renew this certificate in the background.
+
+Deploying certificate
+Could not read file: /etc/nginx/sites-enabled/besindegerim.com.conf due to invalid character. Only UTF-8 encoding is supported.
+Could not install certificate
+
+NEXT STEPS:
+- The certificate was saved, but could not be installed (installer: nginx). After fixing the error shown below, try installing it again by running:
+  certbot install --cert-name toov.com.tr
+
+Could not automatically find a matching server block for toov.com.tr. Set the `server_name` directive to use the Nginx installer.
+Ask for help or search for solutions at https://community.letsencrypt.org. See the logfile /var/log/letsencrypt/letsencrypt.log or re-run Certbot with -v for more details.
+root@162-55-4-35:/var/www/toov# sudo nano /etc/nginx/sites-available/toov1.conf
+root@162-55-4-35:/var/www/toov# sudo nano /etc/nginx/sites-available/capital.conf
+root@162-55-4-35:/var/www/toov# sudo nano /etc/nginx/sites-available/toov1.conf
+root@162-55-4-35:/var/www/toov# sudo nginx -t
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+root@162-55-4-35:/var/www/toov# sudo systemctl restart nginx
+root@162-55-4-35:/var/www/toov#
