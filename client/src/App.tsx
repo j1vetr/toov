@@ -16,6 +16,7 @@ import PrivacyPolicy from "@/pages/privacy-policy";
 import KVKK from "@/pages/kvkk";
 import ProjectWizard from "@/pages/project-wizard";
 import ScrollToTop from "@/components/ScrollToTop";
+import WizardFab from "@/components/WizardFab";
 
 function Router() {
   return (
@@ -45,6 +46,7 @@ function App() {
             <Router />
           </main>
           <Footer />
+          <WizardFab />
         </div>
         <Toaster />
       </TooltipProvider>

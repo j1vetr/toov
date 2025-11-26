@@ -3,14 +3,16 @@ import { motion, AnimatePresence } from "framer-motion";
 import { 
   Monitor, Smartphone, Search, Code, 
   ArrowRight, ArrowLeft, Check, Calendar, 
-  CreditCard, User, Mail, Phone, Building 
+  CreditCard, User, Mail, Phone, Building,
+  Layers, ShoppingCart, Globe, Database,
+  Settings, Zap, BarChart
 } from "lucide-react";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Checkbox } from "@/components/ui/checkbox";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 import { Link } from "wouter";
@@ -23,25 +25,41 @@ const projectTypes = [
   { id: "custom", label: "Özel Yazılım", icon: Code, desc: "İş süreçlerinize özel CRM, ERP veya SaaS çözümleri." },
 ];
 
-// Step 2: Budget Ranges
-const budgetRanges = [
-  { id: "low", label: "50.000₺ - 150.000₺" },
-  { id: "medium", label: "150.000₺ - 300.000₺" },
-  { id: "high", label: "300.000₺ - 500.000₺" },
-  { id: "premium", label: "500.000₺ +" },
-];
+// Additional Questions per Type
+const typeQuestions = {
+  web: [
+    { id: "web_ecommerce", label: "E-Ticaret (Online Satış) olacak mı?", icon: ShoppingCart },
+    { id: "web_cms", label: "Yönetim Paneli (CMS) istiyor musunuz?", icon: Settings },
+    { id: "web_multilang", label: "Çoklu dil desteği gerekli mi?", icon: Globe },
+  ],
+  mobile: [
+    { id: "mob_ios", label: "iOS (iPhone/iPad) Uygulaması", icon: Smartphone },
+    { id: "mob_android", label: "Android Uygulaması", icon: Smartphone },
+    { id: "mob_panel", label: "Yönetim Paneli gerekli mi?", icon: Settings },
+  ],
+  seo: [
+    { id: "seo_audit", label: "Kapsamlı SEO Analizi (Audit)", icon: BarChart },
+    { id: "seo_content", label: "İçerik Üretimi & Blog Yönetimi", icon: Layers },
+    { id: "seo_ads", label: "Google / Meta Reklam Yönetimi", icon: Zap },
+  ],
+  custom: [
+    { id: "soft_crm", label: "CRM / Müşteri Yönetimi", icon: User },
+    { id: "soft_erp", label: "ERP / Stok & Muhasebe", icon: Database },
+    { id: "soft_api", label: "3. Parti Entegrasyonlar (API)", icon: Code },
+  ]
+};
 
 // Step 2: Timeline
 const timelines = [
-  { id: "urgent", label: "Çok Acil (< 1 Ay)" },
-  { id: "normal", label: "Standart (1-3 Ay)" },
-  { id: "relaxed", label: "Esnek (> 3 Ay)" },
+  { id: "urgent", label: "Çok Acil (1 - 2 Hafta)" },
+  { id: "standard", label: "Standart (2 - 4 Hafta)" },
 ];
 
 export default function ProjectWizard() {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     projectType: "",
+    features: [] as string[],
     budget: "",
     timeline: "",
     name: "",
@@ -57,8 +75,8 @@ export default function ProjectWizard() {
       toast({ title: "Lütfen bir proje türü seçin", variant: "destructive" });
       return;
     }
-    if (step === 2 && (!formData.budget || !formData.timeline)) {
-      toast({ title: "Lütfen bütçe ve zaman çizelgesi seçin", variant: "destructive" });
+    if (step === 2 && !formData.timeline) {
+      toast({ title: "Lütfen bir zaman çizelgesi seçin", variant: "destructive" });
       return;
     }
     setStep(prev => prev + 1);
@@ -75,8 +93,17 @@ export default function ProjectWizard() {
     setStep(4); // Success step
   };
 
-  const updateField = (field: string, value: string) => {
+  const updateField = (field: string, value: any) => {
     setFormData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const toggleFeature = (featureId: string) => {
+    setFormData(prev => {
+      const features = prev.features.includes(featureId)
+        ? prev.features.filter(f => f !== featureId)
+        : [...prev.features, featureId];
+      return { ...prev, features };
+    });
   };
 
   return (
@@ -127,7 +154,11 @@ export default function ProjectWizard() {
                   {projectTypes.map((type) => (
                     <button
                       key={type.id}
-                      onClick={() => updateField("projectType", type.id)}
+                      onClick={() => {
+                        updateField("projectType", type.id);
+                        // Reset features when type changes
+                        updateField("features", []);
+                      }}
                       className={cn(
                         "flex items-start p-6 rounded-xl border transition-all duration-300 text-left group hover:shadow-lg hover:shadow-primary/5",
                         formData.projectType === type.id 
@@ -177,51 +208,84 @@ export default function ProjectWizard() {
                   <h2 className="text-3xl font-display font-bold text-white">
                     Proje <span className="text-primary">Detayları</span>
                   </h2>
-                  <p className="text-gray-400">Bütçe ve zaman çizelgenizi belirleyin.</p>
+                  <p className="text-gray-400">Projeniz hakkında biraz daha detay verin.</p>
                 </div>
 
-                <div className="space-y-8">
-                  <div>
-                    <Label className="text-lg text-white mb-4 block flex items-center gap-2">
-                      <CreditCard size={18} className="text-primary" /> Tahmini Bütçe Aralığı
-                    </Label>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-                      {budgetRanges.map((range) => (
-                        <button
-                          key={range.id}
-                          onClick={() => updateField("budget", range.id)}
-                          className={cn(
-                            "py-4 px-2 rounded-lg border text-sm font-medium transition-all text-center",
-                            formData.budget === range.id
-                              ? "bg-primary/10 border-primary text-primary"
-                              : "bg-white/[0.03] border-white/10 text-gray-400 hover:border-primary/50 hover:text-white"
-                          )}
-                        >
-                          {range.label}
-                        </button>
-                      ))}
+                <div className="space-y-10">
+                  {/* Dynamic Questions Based on Type */}
+                  {formData.projectType && typeQuestions[formData.projectType as keyof typeof typeQuestions] && (
+                    <div className="bg-white/[0.02] border border-white/5 rounded-xl p-6">
+                      <Label className="text-lg text-white mb-6 block flex items-center gap-2">
+                        <Check size={18} className="text-primary" /> Proje Özellikleri (Çoklu Seçim)
+                      </Label>
+                      <div className="grid md:grid-cols-2 gap-4">
+                        {typeQuestions[formData.projectType as keyof typeof typeQuestions].map((q) => (
+                          <div 
+                            key={q.id}
+                            className={cn(
+                              "flex items-center space-x-3 p-4 rounded-lg border cursor-pointer transition-all",
+                              formData.features.includes(q.id)
+                                ? "bg-primary/10 border-primary"
+                                : "bg-white/[0.02] border-white/5 hover:bg-white/[0.05]"
+                            )}
+                            onClick={() => toggleFeature(q.id)}
+                          >
+                            <Checkbox 
+                              checked={formData.features.includes(q.id)}
+                              onCheckedChange={() => toggleFeature(q.id)}
+                              className="border-gray-500 data-[state=checked]:bg-primary data-[state=checked]:text-background data-[state=checked]:border-primary"
+                            />
+                            <div className="flex items-center gap-3">
+                              <q.icon size={18} className={formData.features.includes(q.id) ? "text-primary" : "text-gray-500"} />
+                              <span className={formData.features.includes(q.id) ? "text-white" : "text-gray-300"}>{q.label}</span>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                  </div>
+                  )}
 
-                  <div>
-                    <Label className="text-lg text-white mb-4 block flex items-center gap-2">
-                      <Calendar size={18} className="text-primary" /> Zaman Çizelgesi
-                    </Label>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                      {timelines.map((time) => (
-                        <button
-                          key={time.id}
-                          onClick={() => updateField("timeline", time.id)}
-                          className={cn(
-                            "py-4 px-4 rounded-lg border text-sm font-medium transition-all text-center",
-                            formData.timeline === time.id
-                              ? "bg-primary/10 border-primary text-primary"
-                              : "bg-white/[0.03] border-white/10 text-gray-400 hover:border-primary/50 hover:text-white"
-                          )}
-                        >
-                          {time.label}
-                        </button>
-                      ))}
+                  <div className="grid md:grid-cols-2 gap-8">
+                    {/* Budget Input - Optional */}
+                    <div>
+                      <Label className="text-lg text-white mb-4 block flex items-center gap-2">
+                        <CreditCard size={18} className="text-primary" /> Tahmini Bütçe (Opsiyonel)
+                      </Label>
+                      <div className="relative">
+                        <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 font-medium">₺</span>
+                        <Input 
+                          type="text" 
+                          placeholder="Örn: 100.000" 
+                          className="pl-8 bg-white/[0.03] border-white/10 text-white focus:border-primary/50 h-12 text-lg"
+                          value={formData.budget}
+                          onChange={(e) => updateField("budget", e.target.value)}
+                        />
+                      </div>
+                      <p className="text-xs text-gray-500 mt-2">Bütçe aralığı belirtmeniz size en uygun çözümü sunmamızı sağlar.</p>
+                    </div>
+
+                    {/* Timeline Selection */}
+                    <div>
+                      <Label className="text-lg text-white mb-4 block flex items-center gap-2">
+                        <Calendar size={18} className="text-primary" /> Zaman Çizelgesi
+                      </Label>
+                      <div className="grid gap-3">
+                        {timelines.map((time) => (
+                          <button
+                            key={time.id}
+                            onClick={() => updateField("timeline", time.id)}
+                            className={cn(
+                              "py-3 px-4 rounded-lg border text-sm font-medium transition-all text-left flex items-center justify-between group",
+                              formData.timeline === time.id
+                                ? "bg-primary/10 border-primary text-primary"
+                                : "bg-white/[0.03] border-white/10 text-gray-400 hover:border-primary/50 hover:text-white"
+                            )}
+                          >
+                            {time.label}
+                            {formData.timeline === time.id && <Check size={16} />}
+                          </button>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>

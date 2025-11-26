@@ -105,8 +105,9 @@ export default function Navbar() {
               <Link href="/proje-baslat">
                 <a
                   onClick={() => setIsOpen(false)} 
-                  className="mt-4 w-full py-4 bg-primary text-background font-bold text-lg rounded-xl text-center hover:bg-primary/90 transition-colors"
+                  className="mt-4 w-full py-4 bg-gradient-to-r from-primary/20 to-primary/10 border border-primary/50 text-primary font-bold text-lg rounded-xl text-center hover:bg-primary/30 transition-all shadow-[0_0_15px_rgba(0,217,255,0.2)] flex items-center justify-center gap-2"
                 >
+                  <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                   Projeye Başla
                 </a>
               </Link>
