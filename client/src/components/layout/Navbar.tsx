@@ -64,12 +64,10 @@ export default function Navbar() {
           ))}
           
           <Link href="/proje-baslat">
-            <a className="ml-4 px-8 py-3 bg-gradient-to-r from-primary via-primary to-cyan-400 text-background font-bold text-sm rounded-lg hover:scale-105 transition-all duration-300 shadow-[0_0_25px_rgba(0,217,255,0.4)] hover:shadow-[0_0_40px_rgba(0,217,255,0.7)] relative overflow-hidden group">
+            <a className="ml-4 px-8 py-3 bg-gradient-to-r from-primary via-primary to-cyan-400 text-background font-bold text-sm rounded-lg hover:scale-105 transition-all duration-300 shadow-[0_0_25px_rgba(0,217,255,0.4)] hover:shadow-[0_0_40px_rgba(0,217,255,0.7)] relative overflow-hidden group inline-flex items-center gap-2 whitespace-nowrap">
               <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-              <span className="relative flex items-center gap-2">
-                <Sparkles size={16} className="animate-pulse" />
-                Proje Sihirbazı
-              </span>
+              <Sparkles size={16} className="animate-pulse relative z-10" />
+              <span className="relative z-10">Proje Sihirbazı</span>
             </a>
           </Link>
         </nav>
