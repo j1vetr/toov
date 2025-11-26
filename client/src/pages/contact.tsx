@@ -8,6 +8,8 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { useToast } from "@/hooks/use-toast";
 import mapImage from "@assets/generated_images/minimalist_dark_technical_schematic_map_of_istanbul.png";
 import SEO from "@/components/SEO";
+import { useState } from "react";
+import { Loader2, CheckCircle } from "lucide-react";
 
 const formSchema = z.object({
   name: z.string().min(2, "İsim en az 2 karakter olmalıdır."),
@@ -17,6 +19,7 @@ const formSchema = z.object({
 
 export default function Contact() {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -27,6 +30,7 @@ export default function Contact() {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
+    setIsSubmitting(true);
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
@@ -36,8 +40,9 @@ export default function Contact() {
 
       if (response.ok) {
         toast({
-          title: "Mesajınız Gönderildi",
-          description: "En kısa sürede size dönüş yapacağız.",
+          title: "✅ Mesajınız Başarıyla Gönderildi!",
+          description: "Ekibimiz en kısa sürede size dönüş yapacaktır. E-posta adresinize onay maili gönderildi.",
+          duration: 5000,
         });
         form.reset();
       } else {
@@ -45,10 +50,13 @@ export default function Contact() {
       }
     } catch (error) {
       toast({
-        title: "Hata",
-        description: "Mesaj gönderilemedi. Lütfen tekrar deneyin.",
+        title: "❌ Hata",
+        description: "Mesaj gönderilemedi. Lütfen tekrar deneyin veya direkt hello@toov.com.tr adresine yazın.",
         variant: "destructive",
+        duration: 5000,
       });
+    } finally {
+      setIsSubmitting(false);
     }
   }
 
@@ -135,8 +143,23 @@ export default function Contact() {
                     </FormItem>
                   )}
                 />
-                <Button type="submit" className="w-full h-14 text-lg font-bold bg-primary text-background hover:bg-white hover:text-background transition-colors rounded-sm">
-                  Gönder
+                <Button 
+                  type="submit" 
+                  disabled={isSubmitting}
+                  className="w-full h-14 text-lg font-bold bg-primary text-background hover:bg-white hover:text-background transition-colors rounded-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                  data-testid="button-submit-contact"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                      Gönderiliyor...
+                    </>
+                  ) : (
+                    <>
+                      <CheckCircle className="mr-2 h-5 w-5" />
+                      Gönder
+                    </>
+                  )}
                 </Button>
               </form>
             </Form>

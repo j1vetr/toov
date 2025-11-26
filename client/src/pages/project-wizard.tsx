@@ -5,7 +5,7 @@ import {
   ArrowRight, ArrowLeft, Check, CreditCard, 
   User, Mail, Phone, Building,
   Layers, ShoppingCart, Globe, Database,
-  Settings, Zap, BarChart, Plus, Edit
+  Settings, Zap, BarChart, Plus, Edit, Loader2
 } from "lucide-react";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
@@ -55,6 +55,7 @@ const typeQuestions = {
 
 export default function ProjectWizard() {
   const [step, setStep] = useState(1);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     projectType: "",
     features: [] as string[],
@@ -84,6 +85,7 @@ export default function ProjectWizard() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
     
     try {
       const response = await fetch("/api/project-wizard", {
@@ -93,16 +95,24 @@ export default function ProjectWizard() {
       });
 
       if (response.ok) {
+        toast({
+          title: "✅ Proje Talebiniz Alındı!",
+          description: "Ekibimiz en kısa sürede size dönüş yapacaktır. E-posta adresinize detaylı bilgi gönderildi.",
+          duration: 5000,
+        });
         setStep(4); // Success step
       } else {
         throw new Error("Failed to submit");
       }
     } catch (error) {
       toast({
-        title: "Hata",
-        description: "Form gönderilemedi. Lütfen tekrar deneyin.",
+        title: "❌ Hata",
+        description: "Form gönderilemedi. Lütfen tekrar deneyin veya direkt hello@toov.com.tr adresine yazın.",
         variant: "destructive",
+        duration: 5000,
       });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -415,10 +425,21 @@ export default function ProjectWizard() {
                     </Button>
                     <Button 
                       type="submit" 
-                      size="lg" 
-                      className="bg-primary text-background hover:bg-primary/90 text-lg px-8 min-w-[180px]"
+                      size="lg"
+                      disabled={isSubmitting}
+                      className="bg-primary text-background hover:bg-primary/90 text-lg px-8 min-w-[180px] disabled:opacity-50 disabled:cursor-not-allowed"
+                      data-testid="button-submit-wizard"
                     >
-                      Gönder <Check className="ml-2 w-5 h-5" />
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                          Gönderiliyor...
+                        </>
+                      ) : (
+                        <>
+                          Gönder <Check className="ml-2 w-5 h-5" />
+                        </>
+                      )}
                     </Button>
                   </div>
                 </form>
