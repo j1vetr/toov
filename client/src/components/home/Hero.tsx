@@ -1,10 +1,20 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "wouter";
 import heroBg from "@assets/generated_images/abstract_dark_architectural_tech_background_with_turquoise_accents.png";
-import heroVideo from "@assets/generated_videos/smooth_flowing_digital_network_waves_in_deep_navy_and_turquoise.mp4";
+import heroVideo from "@assets/generated_videos/hero_optimized_v2.mp4";
+import { useState, useEffect } from "react";
 
 export default function Hero() {
+  const [showToov, setShowToov] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowToov(true);
+    }, 2000); // 2 seconds delay
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
       {/* Background Video with Overlay */}
@@ -32,22 +42,34 @@ export default function Hero() {
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white leading-[1.1] mb-8">
-                Bugünü <br />
-                Kodluyoruz, <br />
-                <span className="relative inline-block">
-                  <span className="text-primary relative z-10">Yarın Sizin</span>
-                  <motion.div 
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{ duration: 0.8, delay: 0.5, ease: "circOut" }}
-                    className="absolute -bottom-2 left-0 w-full h-3 bg-gradient-to-r from-blue-600 to-transparent origin-left opacity-50 -skew-x-12"
-                  />
-                  <motion.div 
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{ duration: 0.8, delay: 0.7, ease: "circOut" }}
-                    className="absolute -bottom-4 left-0 w-3/4 h-2 bg-gradient-to-r from-primary to-transparent origin-left opacity-30 -skew-x-12"
-                  />
+                Eski Köye <br />
+                Yeni{" "}
+                <span className="inline-block relative min-w-[150px]">
+                  <AnimatePresence mode="wait">
+                    {!showToov ? (
+                      <motion.span
+                        key="adet"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20, filter: "blur(10px)" }}
+                        transition={{ duration: 0.5 }}
+                        className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500 inline-block absolute left-0"
+                      >
+                        Adet
+                      </motion.span>
+                    ) : (
+                      <motion.span
+                        key="toov"
+                        initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+                        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                        transition={{ duration: 0.6, type: "spring", bounce: 0.5 }}
+                        className="text-primary inline-block absolute left-0"
+                      >
+                        TOOV
+                      </motion.span>
+                    )}
+                  </AnimatePresence>
+                  <span className="invisible">Adet</span> {/* Spacer */}
                 </span>
               </h1>
               
