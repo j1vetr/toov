@@ -21,6 +21,7 @@ export default function Navbar() {
 
   const navLinks = [
     { href: "/", label: "Ana Sayfa" },
+    { href: "/hizmetlerimiz", label: "Hizmetlerimiz" },
     { href: "/hakkimizda", label: "Hakkımızda" },
     { href: "/inovasyon", label: "İnovasyon" },
     { href: "/referanslar", label: "Referanslar" },

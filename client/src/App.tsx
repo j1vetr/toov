@@ -8,6 +8,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Home from "@/pages/home";
 import About from "@/pages/about";
+import Services from "@/pages/services";
 import Innovation from "@/pages/innovation";
 import References from "@/pages/references";
 import Contact from "@/pages/contact";
@@ -19,6 +20,7 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/hizmetlerimiz" component={Services} />
       <Route path="/hakkimizda" component={About} />
       <Route path="/inovasyon" component={Innovation} />
       <Route path="/referanslar" component={References} />
