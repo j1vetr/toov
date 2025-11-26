@@ -1,6 +1,6 @@
 import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sparkles } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -64,8 +64,12 @@ export default function Navbar() {
           ))}
           
           <Link href="/proje-baslat">
-            <a className="ml-4 px-6 py-2.5 bg-primary text-background font-bold text-sm rounded-full hover:bg-primary/90 hover:scale-105 transition-all duration-300 shadow-[0_0_20px_rgba(0,217,255,0.3)] hover:shadow-[0_0_30px_rgba(0,217,255,0.5)]">
-              Projeye Başla
+            <a className="ml-4 px-8 py-3 bg-gradient-to-r from-primary via-primary to-cyan-400 text-background font-bold text-sm rounded-lg hover:scale-105 transition-all duration-300 shadow-[0_0_25px_rgba(0,217,255,0.4)] hover:shadow-[0_0_40px_rgba(0,217,255,0.7)] relative overflow-hidden group">
+              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+              <span className="relative flex items-center gap-2">
+                <Sparkles size={16} className="animate-pulse" />
+                Proje Sihirbazı
+              </span>
             </a>
           </Link>
         </nav>
@@ -105,10 +109,13 @@ export default function Navbar() {
               <Link href="/proje-baslat">
                 <a
                   onClick={() => setIsOpen(false)} 
-                  className="mt-4 w-full py-4 bg-gradient-to-r from-primary/20 to-primary/10 border border-primary/50 text-primary font-bold text-lg rounded-xl text-center hover:bg-primary/30 transition-all shadow-[0_0_15px_rgba(0,217,255,0.2)] flex items-center justify-center gap-2"
+                  className="mt-4 w-full py-4 bg-gradient-to-r from-primary via-primary to-cyan-400 text-background font-bold text-lg rounded-xl text-center hover:scale-[1.02] transition-all shadow-[0_0_25px_rgba(0,217,255,0.4)] hover:shadow-[0_0_35px_rgba(0,217,255,0.6)] flex items-center justify-center gap-2 relative overflow-hidden group"
                 >
-                  <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                  Projeye Başla
+                  <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                  <span className="relative flex items-center gap-2">
+                    <Sparkles size={18} className="animate-pulse" />
+                    Proje Sihirbazı
+                  </span>
                 </a>
               </Link>
             </motion.div>
