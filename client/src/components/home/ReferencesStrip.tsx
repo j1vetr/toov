@@ -5,13 +5,13 @@ import { Link } from "wouter";
 // Import select logos for homepage
 import lacivertLogo from "@assets/logos/lacivert_logo.png";
 import pslLogo from "@assets/logos/psl_logo.png";
-import adeLogo from "@assets/logos/ade_logo.png";
+import emeraldLogo from "@assets/logos/emerald_logo.svg";
 import kurlarLogo from "@assets/logos/kurlar_logo.png";
 
 const references = [
   { name: "Lacivert Teknoloji", category: "Bilişim", logo: lacivertLogo },
   { name: "PSL Mobil Enerji", category: "Enerji", logo: pslLogo },
-  { name: "Ade Global Ads", category: "AdTech", logo: adeLogo },
+  { name: "Emerald Mansion", category: "Emlak & SEO", logo: emeraldLogo },
   { name: "Kurlar", category: "Endüstriyel", logo: kurlarLogo }
 ];
 
