@@ -11,7 +11,7 @@ import kurlarLogo from "@assets/logos/kurlar_logo.png";
 const references = [
   { name: "Lacivert Teknoloji", category: "Bilişim", logo: lacivertLogo },
   { name: "PSL Mobil Enerji", category: "Enerji", logo: pslLogo },
-  { name: "Emerald Mansion", category: "Emlak & SEO", logo: emeraldLogo },
+  { name: "Emerald Mansion", category: "Web Tasarım & SEO", logo: emeraldLogo },
   { name: "Kurlar", category: "Endüstriyel", logo: kurlarLogo }
 ];
 

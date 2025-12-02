@@ -92,7 +92,7 @@ const references = [
     url: "https://emeraldmansion.com/",
     logo: emeraldLogo,
     description: "Lüks konut ve emlak sektöründe prestijli projeler sunan öncü gayrimenkul firması.",
-    category: "Emlak & SEO"
+    category: "Web Tasarım & SEO"
   },
   {
     name: "Yosun Restaurant",
