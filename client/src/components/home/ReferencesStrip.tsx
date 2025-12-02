@@ -9,10 +9,10 @@ import emeraldLogo from "@assets/logos/emerald_logo.svg";
 import kurlarLogo from "@assets/logos/kurlar_logo.png";
 
 const references = [
-  { name: "Lacivert Teknoloji", category: "Bilişim", logo: lacivertLogo },
-  { name: "PSL Mobil Enerji", category: "Enerji", logo: pslLogo },
-  { name: "Emerald Mansion", category: "Web Tasarım & SEO", logo: emeraldLogo },
-  { name: "Kurlar", category: "Endüstriyel", logo: kurlarLogo }
+  { name: "Lacivert Teknoloji", category: "Bilişim", logo: lacivertLogo, url: "https://lacivertteknoloji.com/" },
+  { name: "PSL Mobil Enerji", category: "Enerji", logo: pslLogo, url: "https://pslmobilenerji.com/" },
+  { name: "Emerald Mansion", category: "Web Tasarım & SEO", logo: emeraldLogo, url: "https://emeraldmansion.com/" },
+  { name: "Kurlar", category: "Endüstriyel", logo: kurlarLogo, url: "https://kurlar.com.tr/" }
 ];
 
 export default function ReferencesStrip() {
@@ -30,8 +30,11 @@ export default function ReferencesStrip() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {references.map((ref, index) => (
-            <motion.div
+            <motion.a
               key={index}
+              href={ref.url}
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ y: -5 }}
               className="aspect-[4/3] bg-secondary/20 border border-white/5 flex flex-col items-center justify-center p-8 relative overflow-hidden group cursor-pointer"
             >
@@ -48,7 +51,7 @@ export default function ReferencesStrip() {
                 <h3 className="text-lg font-bold text-white mb-1">{ref.name}</h3>
                 <p className="text-xs text-primary">{ref.category}</p>
               </div>
-            </motion.div>
+            </motion.a>
           ))}
         </div>
       </div>
